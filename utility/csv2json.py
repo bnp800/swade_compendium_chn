@@ -9,8 +9,8 @@ def csv_to_json(csv_file, json_file):
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
             # 使用context列作为JSON的key，source列作为JSON的value
-            key = row['context']
-            value = row['source']
+            key = row['source']
+            value = row['target']
             data[key] = value
 
     with open(json_file, 'w') as file:
