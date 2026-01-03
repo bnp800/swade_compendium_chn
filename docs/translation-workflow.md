@@ -99,13 +99,11 @@
 ```bash
 cd swade_compendium_chn
 
-# 检测所有文件变更
-python -m automation.change_detector.detector en-US/ --output changelog.md
+# 检测所有文件变更并生成报告
+python -m automation.change_detector en-US/ --output changelog.md --sync-placeholders
 
-# 检测特定文件变更
-python -m automation.change_detector.detector \
-  en-US/swade-core-rules.swade-edges.json \
-  --compare-with en-US.backup/swade-core-rules.swade-edges.json
+# 如果有目标目录，可以同时创建占位文件
+python -m automation.change_detector en-US/ --target zh_Hans/ --output changelog.md --sync-placeholders
 ```
 
 **变更报告示例**：
@@ -133,7 +131,7 @@ python -m automation.change_detector.detector \
 如果 `zh_Hans/` 目录缺少对应文件，自动创建：
 
 ```bash
-python -m automation.change_detector.detector en-US/ --create-placeholders
+python -m automation.change_detector en-US/ --target zh_Hans/ --sync-placeholders
 ```
 
 ---
@@ -168,15 +166,17 @@ Weblate 是本项目的主要翻译平台。
 #### 步骤 1：提取纯文本
 
 ```bash
-cd utility
+# 提取单个文件到 PO 格式（推荐用于 Weblate）
+python -m automation.format_converter extract \
+    en-US/swade-core-rules.swade-edges.json \
+    --output weblate/edges.po \
+    --format po
 
-# 提取单个文件
-python extract_text.py ../en-US/swade-core-rules.swade-edges.json
-
-# 批量提取
-for file in ../en-US/*.json; do
-    python extract_text.py "$file"
-done
+# 提取到 CSV 格式（用于本地翻译）
+python -m automation.format_converter extract \
+    en-US/swade-core-rules.swade-edges.json \
+    --output edges.csv \
+    --format csv
 ```
 
 输出 CSV 文件格式：
@@ -195,13 +195,20 @@ Alertness,description,Your hero notices subtle clues...,
 - 保持专业术语一致性
 - 注意上下文语境
 
-#### 步骤 3：注入 HTML 结构
+#### 步骤 3：注入翻译
 
 ```bash
-python html_injector.py \
-    ../en-US/swade-core-rules.swade-edges.json \
-    swade-core-rules.swade-edges_extract.csv \
-    -o ../zh_Hans/swade-core-rules.swade-edges.json
+# 从 CSV 注入翻译
+python -m automation.format_converter inject \
+    en-US/swade-core-rules.swade-edges.json \
+    edges-translated.csv \
+    --output zh_Hans/swade-core-rules.swade-edges.json
+
+# 从 PO 文件注入翻译
+python -m automation.format_converter inject \
+    en-US/swade-core-rules.swade-edges.json \
+    weblate/edges-translated.po \
+    --output zh_Hans/swade-core-rules.swade-edges.json
 ```
 
 ### 2.3 术语表管理
@@ -216,18 +223,21 @@ cat glossary/swade-glossary.json | python -m json.tool
 #### 应用术语表
 
 ```bash
-python -m automation.glossary_manager.manager apply \
-    --glossary glossary/swade-glossary.json \
-    --input zh_Hans/swade-core-rules.swade-edges.json \
-    --output zh_Hans/swade-core-rules.swade-edges.json
+python -m automation.glossary_manager apply \
+    glossary/swade-glossary.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --output zh_Hans/swade-core-rules.swade-edges.json \
+    --track
 ```
 
 #### 检测未知术语
 
 ```bash
-python -m automation.glossary_manager.manager find-missing \
-    --glossary glossary/swade-glossary.json \
-    --input zh_Hans/swade-core-rules.swade-edges.json
+python -m automation.glossary_manager find-missing \
+    glossary/swade-glossary.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --format markdown \
+    --output missing-terms.md
 ```
 
 ---
@@ -238,19 +248,26 @@ python -m automation.glossary_manager.manager find-missing \
 
 ```bash
 # 验证单个文件
-python -m json.tool zh_Hans/swade-core-rules.swade-edges.json
+python -m automation.json_validator zh_Hans/swade-core-rules.swade-edges.json
 
 # 验证所有文件
-python -m automation.json_validator.validator zh_Hans/
+python -m automation.json_validator zh_Hans/ --format json --output validation-report.json
 ```
 
 ### 3.2 翻译质量检查
 
 ```bash
-python -m automation.quality_checker.checker \
-    --source en-US/swade-core-rules.swade-edges.json \
-    --target zh_Hans/swade-core-rules.swade-edges.json \
+python -m automation.quality_checker check \
+    en-US/swade-core-rules.swade-edges.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --format markdown \
     --output quality-report.md
+
+# 使用术语表进行检查
+python -m automation.quality_checker check \
+    en-US/swade-core-rules.swade-edges.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --glossary glossary/swade-glossary.json
 ```
 
 **检查项目**：
@@ -380,22 +397,28 @@ GitHub Actions 会自动：
 
 ```bash
 # 变更检测
-python -m automation.change_detector.detector <source_dir> [options]
+python -m automation.change_detector <source_dir> [--target <target_dir>] [--output <file>]
 
 # 格式转换
-python -m automation.format_converter.converter <input> <output> [options]
+python -m automation.format_converter extract <input_file> [--output <file>] [--format <format>]
+python -m automation.format_converter inject <source_file> <translations_file> [--output <file>]
 
 # 术语管理
-python -m automation.glossary_manager.manager <command> [options]
+python -m automation.glossary_manager <command> <glossary_file> [args...]
 
 # 质量检查
-python -m automation.quality_checker.checker <source> <target> [options]
-
-# 进度追踪
-python -m automation.progress_tracker.tracker <source_dir> <target_dir> [options]
+python -m automation.quality_checker check <source_file> <target_file> [options]
+python -m automation.quality_checker batch <source_dir> <target_dir> [options]
 
 # JSON 验证
-python -m automation.json_validator.validator <path> [options]
+python -m automation.json_validator <path> [options]
+
+# 增量更新
+python -m automation.incremental_update update <source_file> <translation_file> [options]
+python -m automation.incremental_update batch <source_dir> <translation_dir> [options]
+
+# Babele 转换器测试
+python -m automation.babele_converter validate <source_file> <translated_file> [options]
 ```
 
 ---
@@ -432,12 +455,19 @@ git checkout <commit-hash> -- zh_Hans/problematic-file.json
 
 **A**:
 ```bash
-# 批量应用术语表
+# 批量应用术语表到所有文件
+python -m automation.glossary_manager apply \
+    glossary/swade-glossary.json \
+    zh_Hans/ \
+    --track
+
+# 或者逐个文件处理
 for file in zh_Hans/*.json; do
-    python -m automation.glossary_manager.manager apply \
-        --glossary glossary/swade-glossary.json \
-        --input "$file" \
-        --output "$file"
+    python -m automation.glossary_manager apply \
+        glossary/swade-glossary.json \
+        "$file" \
+        --output "$file" \
+        --track
 done
 ```
 
@@ -465,7 +495,7 @@ done
 
 **A**:
 - Weblate 平台：查看项目统计页面
-- 本地：运行 `python -m automation.progress_tracker.tracker`
+- 本地：运行质量检查和验证工具查看完成度
 
 ### Q9: 如何报告翻译错误？
 

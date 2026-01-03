@@ -75,20 +75,12 @@ python -m automation.change_detector.detector --help
 ### 基本用法
 
 ```bash
-# 检测单个文件变更
-python -m automation.change_detector.detector \
-    en-US/swade-core-rules.swade-edges.json \
-    --compare-with en-US.backup/swade-core-rules.swade-edges.json
-
 # 检测目录中所有文件变更
-python -m automation.change_detector.detector en-US/ \
-    --backup-dir en-US.backup/ \
-    --output changelog.md
-
-# 创建占位文件
-python -m automation.change_detector.detector en-US/ \
-    --create-placeholders \
-    --target-dir zh_Hans/
+python -m automation.change_detector \
+    en-US/ \
+    --target zh_Hans/ \
+    --output changelog.md \
+    --sync-placeholders
 ```
 
 ### 参数说明
@@ -161,22 +153,16 @@ python -m automation.change_detector.detector en-US/ \
 
 ```bash
 # 从 JSON 提取纯文本（用于 Weblate）
-python -m automation.format_converter.converter extract \
-    --input en-US/swade-core-rules.swade-edges.json \
+python -m automation.format_converter extract \
+    en-US/swade-core-rules.swade-edges.json \
     --output weblate/edges.po \
     --format po
 
 # 将翻译注入回 JSON
-python -m automation.format_converter.converter inject \
-    --source en-US/swade-core-rules.swade-edges.json \
-    --translations weblate/edges.po \
+python -m automation.format_converter inject \
+    en-US/swade-core-rules.swade-edges.json \
+    weblate/edges.po \
     --output zh_Hans/swade-core-rules.swade-edges.json
-
-# 批量转换
-python -m automation.format_converter.converter batch-extract \
-    --input-dir en-US/ \
-    --output-dir weblate/ \
-    --format csv
 ```
 
 ### 支持的格式
@@ -192,39 +178,28 @@ python -m automation.format_converter.converter batch-extract \
 
 | 参数 | 说明 | 示例 |
 |------|------|------|
-| `command` | 操作类型 | `extract`, `inject`, `batch-extract` |
-| `--input` | 输入文件 | `source.json` |
+| `extract` | 提取文本到翻译格式 | - |
+| `inject` | 注入翻译回 JSON | - |
+| `INPUT_FILE` | 输入 JSON 文件 (位置参数) | `source.json` |
+| `TRANSLATIONS_FILE` | 翻译文件 (位置参数) | `translations.po` |
 | `--output` | 输出文件 | `target.po` |
 | `--format` | 输出格式 | `po`, `csv`, `json` |
-| `--preserve-html` | 保留 HTML 结构 | - |
-| `--include-context` | 包含上下文信息 | - |
+| `--track` | 显示替换统计 | - |
 
 ### 高级功能
 
 ```bash
-# 提取时包含上下文信息
-python -m automation.format_converter.converter extract \
-    --input en-US/swade-core-rules.swade-edges.json \
-    --output edges-with-context.csv \
-    --format csv \
-    --include-context \
-    --include-metadata
+# 提取时显示统计信息
+python -m automation.format_converter extract \
+    en-US/swade-core-rules.swade-edges.json \
+    --output edges.csv \
+    --format csv
 
-# 注入时验证 HTML 结构
-python -m automation.format_converter.converter inject \
-    --source en-US/swade-core-rules.swade-edges.json \
-    --translations edges-translated.csv \
-    --output zh_Hans/swade-core-rules.swade-edges.json \
-    --validate-html \
-    --preserve-links
-
-# 转换时应用术语表
-python -m automation.format_converter.converter inject \
-    --source en-US/swade-core-rules.swade-edges.json \
-    --translations edges-translated.csv \
-    --output zh_Hans/swade-core-rules.swade-edges.json \
-    --glossary glossary/swade-glossary.json \
-    --apply-glossary
+# 注入翻译并验证结果
+python -m automation.format_converter inject \
+    en-US/swade-core-rules.swade-edges.json \
+    edges-translated.csv \
+    --output zh_Hans/swade-core-rules.swade-edges.json
 ```
 
 ---
@@ -236,23 +211,37 @@ python -m automation.format_converter.converter inject \
 ### 基本用法
 
 ```bash
-# 应用术语表到翻译文件
-python -m automation.glossary_manager.manager apply \
-    --glossary glossary/swade-glossary.json \
-    --input zh_Hans/swade-core-rules.swade-edges.json \
-    --output zh_Hans/swade-core-rules.swade-edges.json
+# 应用术语表到文本
+python -m automation.glossary_manager apply \
+    glossary/swade-glossary.json \
+    input.txt \
+    --output translated.txt \
+    --track
 
 # 查找未知术语
-python -m automation.glossary_manager.manager find-missing \
-    --glossary glossary/swade-glossary.json \
-    --input zh_Hans/swade-core-rules.swade-edges.json \
-    --output missing-terms.json
+python -m automation.glossary_manager find-missing \
+    glossary/swade-glossary.json \
+    input.txt \
+    --format markdown \
+    --output missing-terms.md
 
 # 更新术语表
-python -m automation.glossary_manager.manager update \
-    --glossary glossary/swade-glossary.json \
-    --term "Combat Reflexes" \
-    --translation "战斗反射"
+python -m automation.glossary_manager update \
+    glossary/swade-glossary.json \
+    "Combat Reflexes" \
+    "战斗反射"
+
+# 导出术语表
+python -m automation.glossary_manager export \
+    glossary/swade-glossary.json \
+    output.csv \
+    --format csv
+
+# 导入术语表
+python -m automation.glossary_manager import \
+    glossary/swade-glossary.json \
+    new-terms.csv \
+    --merge
 ```
 
 ### 术语表格式
@@ -313,23 +302,23 @@ python -m automation.glossary_manager.manager validate \
 
 ```bash
 # 检查单个文件
-python -m automation.quality_checker.checker \
-    --source en-US/swade-core-rules.swade-edges.json \
-    --target zh_Hans/swade-core-rules.swade-edges.json \
-    --output quality-report.json
+python -m automation.quality_checker check \
+    en-US/swade-core-rules.swade-edges.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --format text
 
 # 批量检查
-python -m automation.quality_checker.checker batch \
-    --source-dir en-US/ \
-    --target-dir zh_Hans/ \
-    --output quality-summary.html
+python -m automation.quality_checker batch \
+    en-US/ \
+    zh_Hans/ \
+    --format markdown \
+    --output quality-report.md
 
-# 只检查特定问题类型
-python -m automation.quality_checker.checker \
-    --source en-US/swade-core-rules.swade-edges.json \
-    --target zh_Hans/swade-core-rules.swade-edges.json \
-    --checks placeholder,html,uuid \
-    --output focused-report.json
+# 使用术语表检查
+python -m automation.quality_checker check \
+    en-US/swade-core-rules.swade-edges.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --glossary glossary/swade-glossary.json
 ```
 
 ### 检查类型
@@ -500,17 +489,20 @@ python -m automation.progress_tracker.tracker estimate \
 
 ```bash
 # 验证单个文件
-python -m automation.json_validator.validator \
+python -m automation.json_validator \
     zh_Hans/swade-core-rules.swade-edges.json
 
 # 验证目录中所有文件
-python -m automation.json_validator.validator zh_Hans/ \
+python -m automation.json_validator \
+    zh_Hans/ \
+    --format json \
     --output validation-report.json
 
-# 验证并修复常见问题
-python -m automation.json_validator.validator zh_Hans/ \
-    --fix-common-issues \
-    --backup
+# 验证时过滤文件
+python -m automation.json_validator \
+    zh_Hans/ \
+    --pattern "*.json" \
+    --no-recursive
 ```
 
 ### 验证规则
@@ -617,26 +609,20 @@ python -m automation.multi_module.manager validate \
 ### 基本用法
 
 ```bash
-# 执行增量更新
-python -m automation.incremental_update.updater \
-    --old-source en-US.backup/ \
-    --new-source en-US/ \
-    --translations zh_Hans/ \
-    --output zh_Hans.updated/
+# 更新单个翻译文件
+python -m automation.incremental_update update \
+    en-US/swade-core-rules.swade-edges.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --output updated.json \
+    --backup
 
-# 生成更新报告
-python -m automation.incremental_update.updater report \
-    --old-source en-US.backup/ \
-    --new-source en-US/ \
-    --translations zh_Hans/ \
-    --output update-report.md
-
-# 智能合并翻译
-python -m automation.incremental_update.updater merge \
-    --base zh_Hans/swade-core-rules.swade-edges.json \
-    --updates new-translations.json \
-    --output merged.json \
-    --strategy smart
+# 批量更新所有文件
+python -m automation.incremental_update batch \
+    en-US/ \
+    zh_Hans/ \
+    --pattern "*.json" \
+    --backup \
+    --report update-report.md
 ```
 
 ### 更新策略
@@ -667,27 +653,25 @@ python -m automation.incremental_update.updater resolve-conflicts \
 
 ## Babele Converter (Babele 转换器)
 
-优化 Babele 转换器配置。
+测试和验证 Babele 转换器功能。
 
 ### 基本用法
 
 ```bash
-# 测试转换器
-python -m automation.babele_converter.tester \
-    --converter embeddedItems \
-    --test-data test-actor.json \
-    --translations test-translations.json
+# 验证翻译完整性
+python -m automation.babele_converter validate \
+    en-US/swade-core-rules.swade-edges.json \
+    zh_Hans/swade-core-rules.swade-edges.json \
+    --format text
 
-# 生成转换器配置
-python -m automation.babele_converter.generator \
-    --input-dir mappings/ \
-    --output babele-config.js
+# 测试嵌入项目重用
+python -m automation.babele_converter test-reuse \
+    zh_Hans/ \
+    --verbose
 
-# 验证转换器性能
-python -m automation.babele_converter.profiler \
-    --converter-file babele.js \
-    --test-data-dir test-data/ \
-    --output performance-report.json
+# 列出可翻译字段
+python -m automation.babele_converter fields \
+    en-US/swade-core-rules.swade-edges.json
 ```
 
 ### 转换器类型
@@ -773,16 +757,16 @@ auto_validate = true
 echo 开始翻译更新流程...
 
 echo 1. 检测变更
-python -m automation.change_detector.detector en-US/ --backup-dir en-US.backup/ --output changelog.md
+python -m automation.change_detector en-US/ --target zh_Hans/ --output changelog.md --sync-placeholders
 
 echo 2. 应用术语表
-python -m automation.glossary_manager.manager batch-apply --glossary glossary/swade-glossary.json --input-dir zh_Hans/
+python -m automation.glossary_manager apply glossary/swade-glossary.json zh_Hans/ --track
 
 echo 3. 质量检查
-python -m automation.quality_checker.checker batch --source-dir en-US/ --target-dir zh_Hans/ --output quality-report.html
+python -m automation.quality_checker batch en-US/ zh_Hans/ --format markdown --output quality-report.md
 
-echo 4. 生成进度报告
-python -m automation.progress_tracker.tracker dashboard --source-dir en-US/ --target-dir zh_Hans/ --output dashboard.html
+echo 4. JSON 验证
+python -m automation.json_validator zh_Hans/ --format json --output validation-report.json
 
 echo 翻译更新完成！
 pause
@@ -799,26 +783,28 @@ set -e
 echo "开始翻译更新流程..."
 
 echo "1. 检测变更"
-python -m automation.change_detector.detector en-US/ \
-    --backup-dir en-US.backup/ \
-    --output changelog.md
+python -m automation.change_detector en-US/ \
+    --target zh_Hans/ \
+    --output changelog.md \
+    --sync-placeholders
 
 echo "2. 应用术语表"
-python -m automation.glossary_manager.manager batch-apply \
-    --glossary glossary/swade-glossary.json \
-    --input-dir zh_Hans/
+python -m automation.glossary_manager apply \
+    glossary/swade-glossary.json \
+    zh_Hans/ \
+    --track
 
 echo "3. 质量检查"
-python -m automation.quality_checker.checker batch \
-    --source-dir en-US/ \
-    --target-dir zh_Hans/ \
-    --output quality-report.html
+python -m automation.quality_checker batch \
+    en-US/ \
+    zh_Hans/ \
+    --format markdown \
+    --output quality-report.md
 
-echo "4. 生成进度报告"
-python -m automation.progress_tracker.tracker dashboard \
-    --source-dir en-US/ \
-    --target-dir zh_Hans/ \
-    --output dashboard.html
+echo "4. JSON 验证"
+python -m automation.json_validator zh_Hans/ \
+    --format json \
+    --output validation-report.json
 
 echo "翻译更新完成！"
 ```
@@ -854,51 +840,43 @@ def main():
     
     # 1. 检测变更
     run_command(
-        "python -m automation.change_detector.detector en-US/ "
-        "--backup-dir en-US.backup/ --output changelog.md",
+        "python -m automation.change_detector en-US/ "
+        "--target zh_Hans/ --output changelog.md --sync-placeholders",
         "检测源文件变更"
     )
     
     # 2. 格式转换（如需要）
     run_command(
-        "python -m automation.format_converter.converter batch-extract "
-        "--input-dir en-US/ --output-dir weblate/ --format po",
+        "python -m automation.format_converter extract "
+        "en-US/swade-core-rules.swade-edges.json --output weblate/edges.po --format po",
         "提取翻译模板"
     )
     
     # 3. 应用术语表
     run_command(
-        "python -m automation.glossary_manager.manager batch-apply "
-        "--glossary glossary/swade-glossary.json --input-dir zh_Hans/",
+        "python -m automation.glossary_manager apply "
+        "glossary/swade-glossary.json zh_Hans/ --track",
         "应用术语表"
     )
     
     # 4. 质量检查
     run_command(
-        "python -m automation.quality_checker.checker batch "
-        "--source-dir en-US/ --target-dir zh_Hans/ --output quality-report.html",
+        "python -m automation.quality_checker batch "
+        "en-US/ zh_Hans/ --format markdown --output quality-report.md",
         "执行质量检查"
     )
     
-    # 5. 生成进度报告
+    # 5. JSON 验证
     run_command(
-        "python -m automation.progress_tracker.tracker dashboard "
-        "--source-dir en-US/ --target-dir zh_Hans/ --output dashboard.html",
-        "生成进度仪表板"
-    )
-    
-    # 6. JSON 验证
-    run_command(
-        "python -m automation.json_validator.validator zh_Hans/ "
-        "--output validation-report.json",
+        "python -m automation.json_validator zh_Hans/ "
+        "--format json --output validation-report.json",
         "验证 JSON 文件"
     )
     
     print("\n🎉 翻译工作流完成！")
     print("📊 查看报告:")
     print("  - 变更日志: changelog.md")
-    print("  - 质量报告: quality-report.html") 
-    print("  - 进度仪表板: dashboard.html")
+    print("  - 质量报告: quality-report.md") 
     print("  - 验证报告: validation-report.json")
 
 if __name__ == "__main__":
