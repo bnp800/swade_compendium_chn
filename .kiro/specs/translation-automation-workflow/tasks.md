@@ -68,7 +68,7 @@
     - 添加 PO 格式支持（Weblate 原生格式）
     - _Requirements: 2.5_
 
-- [ ] 5. Checkpoint - 确保所有测试通过
+- [x] 5. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
 - [x] 6. Glossary Manager 组件实现
@@ -111,7 +111,7 @@
     - 支持 Markdown 和 JSON 格式
     - _Requirements: 7.4_
 
-- [ ] 8. Checkpoint - 确保所有测试通过
+- [x] 8. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
 - [x] 9. Progress Tracker 组件实现
@@ -146,7 +146,7 @@
     - 处理冲突情况
     - _Requirements: 8.5_
 
-- [ ] 11. Checkpoint - 确保所有测试通过
+- [x] 11. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
 - [x] 12. Babele Converter 优化
@@ -212,7 +212,7 @@
     - 常见问题解答
     - _Requirements: 10.4, 10.5, 11.4_
 
-- [ ] 16. Final Checkpoint - 确保所有测试通过
+- [x] 16. Final Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
 ## Notes
