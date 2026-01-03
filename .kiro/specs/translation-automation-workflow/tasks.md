@@ -43,26 +43,26 @@
     - **Property 15: Deleted Entry Handling**
     - **Validates: Requirements 1.5**
 
-- [ ] 3. Checkpoint - 确保所有测试通过
+- [x] 3. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
-- [ ] 4. Format Converter 组件实现
-  - [ ] 4.1 实现 HTML 文本提取器
+- [x] 4. Format Converter 组件实现
+  - [x] 4.1 实现 HTML 文本提取器
     - 增强现有 `extract_text.py` 功能
     - 支持 UUID 链接占位符处理
     - 支持 Weblate PO 格式输出
     - _Requirements: 2.1, 2.2_
-  - [ ] 4.2 实现翻译注入器
+  - [x] 4.2 实现翻译注入器
     - 增强现有 `html_injector.py` 功能
     - 确保 HTML 结构完整保留
     - _Requirements: 2.3, 2.4_
-  - [ ] 4.3 编写格式转换往返属性测试
+  - [x] 4.3 编写格式转换往返属性测试
     - **Property 2: Format Conversion Round-Trip**
     - **Validates: Requirements 2.2, 2.3, 2.4**
-  - [ ] 4.4 编写 UUID 链接保留属性测试
+  - [x] 4.4 编写 UUID 链接保留属性测试
     - **Property 3: UUID Link Preservation**
     - **Validates: Requirements 2.4, 7.3**
-  - [ ] 4.5 实现多格式支持 (CSV, JSON, PO)
+  - [x] 4.5 实现多格式支持 (CSV, JSON, PO)
     - 支持 CSV 格式（现有）
     - 支持 JSON 格式（现有）
     - 添加 PO 格式支持（Weblate 原生格式）
