@@ -1,0 +1,2268 @@
+# 变更日志 (Changelog)
+
+生成时间: 2026-01-03 17:02:10
+
+## 总体统计
+
+- 新增条目: 2136
+- 修改条目: 0
+- 删除条目: 0
+- 未变更条目: 0
+
+## 详细变更
+
+### swade-core-rules.swade-armor.json
+
+**新增 (46):**
+- Ballistic Shield
+- Battle Helmet
+- Battle Helmet w/ Energy Skin
+- Bike helmet
+- Body Armor
+- Body Armor w/Energy Skin
+- Bombproof suit
+- Bronze Barding (horse)
+- Bronze Corselet
+- Bronze Helmet
+- Cap (Cloth/Light Leather)
+- Cap (Thick Leather/Tough Hides)
+- Chain Hood or Helm
+- Corselet (Plate Mail)
+- Flak Jacket (Vietnam-era)
+- Greaves (Bronze Armor)
+- Greaves (Plate Mail)
+- Heavy Helm
+- Heavy Helm, Enclosed
+- Infantry Battle Suit
+- Infantry Battle Suit w/ Energy Skin
+- Jacket (Cloth/Light Leather)
+- Jacket (Thick Leather/Tough Hides)
+- Kevlar Riding Jacket
+- Kevlar Riding Jeans
+- Kevlar Vest
+- Kevlar Vest with ceramic inserts
+- Kevlar helmet
+- Large Shield
+- Leather Riding Chaps
+- Leggings (Chain Mail)
+- Leggings (Cloth/Light Leather)
+- Leggings (Thick Leather/Tough Hides)
+- Medium Shield
+- Motorcycle Helmet
+- Plate Barding (horse)
+- Polymer Shield, large
+- Polymer Shield, medium
+- Polymer Shield, small
+- Riot Shield
+- Robes
+- Shirt (Chain Mail)
+- Small Shield
+- Thick Coat, Leather Jacket
+- Vambraces (Bronze Armor)
+- Vambraces (Plate Mail)
+
+### swade-core-rules.swade-bestiary.json
+
+**新增 (44):**
+- Alligator/Crocodile
+- Bear
+- Bull
+- Cat, Small
+- Dire Wolf
+- Dog / Wolf
+- Dragon
+- Drake
+- Elemental, Air
+- Elemental, Earth
+- Elemental, Fire
+- Elemental, Water
+- Ghost
+- Giant Worm
+- Goblin
+- Horse
+- Horse, War
+- Lich
+- Lion
+- Mech
+- Minotaur
+- Mule
+- Ogre
+- Orc
+- Orc, Chieftain
+- Raptor (Birds of Prey)
+- Shark
+- Shark, Bull
+- Shark, Great White
+- Skeleton
+- Snake, Constrictor
+- Snake, Venomous
+- Soldier
+- Soldier, Experienced
+- Spider, Giant
+- Summon Ally: Attendant
+- Summon Ally: Bodyguard
+- Summon Ally: Sentinel
+- Swarm
+- Troll
+- Vampire
+- Vampire, Ancient
+- Werewolf
+- Zombie
+
+### swade-core-rules.swade-edges.json
+
+**新增 (141):**
+- Ace
+- Acrobat
+- Alertness
+- Ambidextrous
+- Arcane Background (Gifted)
+- Arcane Background (Magic)
+- Arcane Background (Miracles)
+- Arcane Background (Psionics)
+- Arcane Background (Weird Science)
+- Arcane Resistance
+- Aristocrat
+- Artificer
+- Assassin
+- Attractive
+- Beast Bond
+- Beast Master
+- Berserk
+- Block
+- Bolster
+- Brave
+- Brawler
+- Brawny
+- Bruiser
+- Brute
+- Calculating
+- Champion
+- Channeling
+- Charismatic
+- Chi
+- Combat Acrobat
+- Combat Reflexes
+- Command
+- Command Presence
+- Common Bond
+- Concentration
+- Connections
+- Counterattack
+- Danger Sense
+- Dead Shot
+- Dodge
+- Double Tap
+- Elan
+- Expert
+- Extra Effort
+- Extraction
+- Fame
+- Famous
+- Fast Healer
+- Feint
+- Fervor
+- Filthy Rich
+- First Strike
+- Fleet-Footed
+- Followers
+- Free Runner
+- Frenzy
+- Gadgeteer
+- Giant Killer
+- Great Luck
+- Hard To Kill
+- Harder To Kill
+- Healer
+- Hold the Line!
+- Holy/Unholy Warrior
+- Humiliate
+- Improved Arcane Resistance
+- Improved Block
+- Improved Counterattack
+- Improved Dodge
+- Improved Extraction
+- Improved First Strike
+- Improved Frenzy
+- Improved Level Headed
+- Improved Nerves of Steel
+- Improved Rapid Fire
+- Improved Rapid Recharge
+- Improved Sweep
+- Improved Trademark Weapon
+- Improvisational Fighter
+- Inspire
+- Investigator
+- Iron Jaw
+- Iron Will
+- Jack of All Trades
+- Jack-Of-All-Trades
+- Killer Instinct
+- Level Headed
+- Linguist
+- Liquid Courage
+- Luck
+- Marksman
+- Martial Artist
+- Martial Warrior
+- Master
+- Master Tactician
+- Master of Arms
+- McGyver
+- Menacing
+- Mentalist
+- Mighty Blow
+- Mr. Fix It
+- Natural Leader
+- Nerves of Steel
+- New Powers
+- No Mercy
+- Power Points
+- Power Surge
+- Professional
+- Provoke
+- Quick
+- Rabble Rouser
+- Rabble-Rouser
+- Rapid Fire
+- Rapid Recharge
+- Reliable
+- Retort
+- Rich
+- Rock and Roll!
+- Scavenger
+- Scholar
+- Sidekick
+- Soldier
+- Soul Drain
+- Steady Hands
+- Streetwise
+- Strong Willed
+- Sweep
+- Tactician
+- Thief
+- Tough As Nails
+- Tougher Than Nails
+- Trademark Weapon
+- Two-Fisted
+- Two-Gun Kid
+- Very Attractive
+- Weapon Master
+- Wizard
+- Woodsman
+- Work The Room
+- Work the Crowd
+- Work the Room
+
+### swade-core-rules.swade-equipment.json
+
+**新增 (77):**
+- "Bug" (Micro Transmitter)
+- Arrows/Bolts
+- Backpack
+- Bedroll
+- Bipod/Tripod
+- Blanket
+- Boots, Hiking
+- Bullets, Large
+- Bullets, Medium
+- Bullets, Small
+- Button Camera
+- Camera (digital)
+- Camera (disposable)
+- Camera (regular)
+- Camouflage Fatigues
+- Candle
+- Canister Shot (Cannon)
+- Canteen (waterskin)
+- Cellular Interceptor
+- Clothing, Casual
+- Clothing, Formal
+- Computer, Desktop
+- Computer, Hand held
+- Computer, Laptop
+- Crowbar
+- Elaborate Saddle
+- Fast Food Meal
+- First Aid Kit
+- Flashlight
+- Flask (ceramic)
+- Flint and Steel
+- GPS
+- Goggles
+- Good Meal (restaurant)
+- Grappling Hook
+- Hammer
+- Handcuffs (manacles)
+- Horse
+- Lantern
+- Laser Battery, Gatling
+- Laser Battery, Pistol
+- Laser Battery, Rifle / SMG
+- Laser/Red Dot Sight
+- Lighter
+- Lineman's Telephone
+- Lockpicks
+- MRE (Meal Ready to Eat)
+- Medic Kit
+- Night Vision Goggles
+- Oil
+- Parabolic Microphone
+- Pepper Spray
+- Quiver
+- Rifle Scope
+- Rope, hemp
+- Rope, nylon
+- Saddle
+- Shot (w/ powder)
+- Shotgun Shells
+- Shotgun Slugs
+- Shovel
+- Shrapnel Shot (Cannon)
+- Sling stones
+- Soap
+- Solid Shot (Cannon)
+- Stun Gun
+- Telephone Tap
+- Tool Kit
+- Torch
+- Trail Rations
+- Transmitter Detector
+- Umbrella
+- War Horse
+- Whetstone
+- Whistle
+- Winter Boots
+- Winter Gear (cloak/parka)
+
+### swade-core-rules.swade-hindrances.json
+
+**新增 (57):**
+- All Thumbs
+- Anemic
+- Arrogant
+- Bad Eyes
+- Bad Luck
+- Big Mouth
+- Blind
+- Bloodthirsty
+- Can't Swim
+- Cautious
+- Clueless
+- Clumsy
+- Code of Honor
+- Curious
+- Death Wish
+- Delusional
+- Doubting Thomas
+- Driven
+- Elderly
+- Enemy
+- Greedy
+- Habit
+- Hard of Hearing
+- Heroic
+- Hesitant
+- Illiterate
+- Impulsive
+- Jealous
+- Loyal
+- Mean
+- Mild Mannered
+- Mute
+- Obese
+- Obligation
+- One Arm
+- One Eye
+- Outsider
+- Overconfident
+- Pacifist
+- Phobia
+- Poverty
+- Quirk
+- Ruthless
+- Secret
+- Shamed
+- Slow
+- Small
+- Stubborn
+- Suspicious
+- Thin Skinned
+- Timid
+- Tongue-Tied
+- Ugly
+- Vengeful
+- Vow
+- Wanted
+- Young
+
+### swade-core-rules.swade-modern-firearms.json
+
+**新增 (35):**
+- AK47
+- Barrett
+- Browning Automatic Rifle
+- Colt 1911
+- Colt Peacemaker
+- Derringer
+- Desert Eagle
+- Double-Barrel Shotgun
+- Gatling
+- Gatling (Laser)
+- Glock (9mm)
+- H&K MP5
+- Hunting Rifle
+- M-16
+- M1 Garand
+- M2 Browning
+- M60
+- MG42
+- Minigun
+- Pistol (Laser)
+- Police Revolver
+- Pump Action Shotgun
+- Rifle (Laser)
+- Ruger
+- SAW
+- SMG (Laser)
+- Sawed-Off Double-Barrel Shotgun
+- Sharps Big 50
+- Smith & Wesson
+- Spencer Carbine
+- Steyr AUG
+- Streetsweeper Shotgun
+- Tommy Gun
+- Uzi
+- Winchester ‘73
+
+### swade-core-rules.swade-personal-weapons.json
+
+**新增 (53):**
+- Axe, Battle
+- Axe, Great
+- Axe, Hand
+- Axe, Throwing
+- Bangstick
+- Bayonet
+- Billy Club/Baton
+- Blunderbuss
+- Bow
+- Brass Knuckles
+- Brown Bess or Similar Muskets
+- Chainsaw
+- Club, Heavy
+- Club, Light
+- Compound Bow
+- Crossbow
+- Crossbow (Hand Drawn)
+- Crossbow, Heavy
+- Dagger/Knife (Throwing)
+- Dagger/Knife (melee)
+- Flail
+- Flintlock Pistol
+- Halberd
+- Improvised Weapon (Heavy)
+- Improvised Weapon (Light)
+- Improvised Weapon (Medium)
+- Katana
+- Kentucky Rifle
+- Lance
+- Laser Sword
+- Long Bow
+- Mace
+- Maul
+- Molecular Knife
+- Molecular Sword
+- Natural Bite
+- Natural Claws
+- Natural Horns
+- Net (Weighted)
+- Pike
+- Rapier
+- Sling
+- Spear
+- Spear/Javelin
+- Springfield Model 1861
+- Staff
+- Survival Knife
+- Switchblade
+- Sword, Great
+- Sword, Long
+- Sword, Short
+- Unarmed
+- Warhammer
+
+### swade-core-rules.swade-powers.json
+
+**新增 (54):**
+- Arcane Protection
+- Banish
+- Barrier
+- Beast Friend
+- Blast
+- Blind
+- Bolt
+- Boost/Lower Trait
+- Burrow
+- Burst
+- Confusion
+- Damage Field
+- Darksight
+- Deflection
+- Detect/Conceal Arcana
+- Disguise
+- Dispel
+- Divination
+- Drain Power Points
+- Elemental Manipulation
+- Empathy
+- Entangle
+- Environmental Protection
+- Farsight
+- Fear
+- Fly
+- Growth/Shrink
+- Havoc
+- Healing
+- Illusion
+- Intangibility
+- Invisibility
+- Light / Darkness
+- Mind Link
+- Mind Reading
+- Mind Wipe
+- Object Reading
+- Protection
+- Puppet
+- Relief
+- Resurrection
+- Shape Change
+- Sloth/Speed
+- Slumber
+- Smite
+- Sound/Silence
+- Speak Language
+- Stun
+- Summon Ally
+- Telekinesis
+- Teleport
+- Wall Walker
+- Warrior's Gift
+- Zombie
+
+### swade-core-rules.swade-races.json
+
+**新增 (12):**
+- Android
+- Aquarian
+- Avion
+- Celestials
+- Dwarves
+- Elves
+- Guardians
+- Half-Elves
+- Half-Folk
+- Humans
+- Rakashans
+- Saurians
+
+### swade-core-rules.swade-racial-abilities.json
+
+**新增 (46):**
+- Adaptable
+- Additional Action
+- Aquatic
+- Armor
+- Attribute Increase
+- Attribute Penalty
+- Big
+- Bite
+- Burrowing
+- Cannot Speak
+- Claws
+- Construct
+- Dependency
+- Doesn't Breathe
+- Edge
+- Environmental Resistance
+- Environmental Weakness
+- Flight
+- Frail
+- Hardy
+- Hindrance
+- Horns
+- Immune to Poison or Disease
+- Infravision
+- Leaper
+- Low Light Vision
+- No Vital Organs
+- Pace
+- Parry
+- Poisonous Touch
+- Poor Parry
+- Power
+- Racial Enemy
+- Reach
+- Reduced Core Skills
+- Reduced Pace
+- Regeneration
+- Size +1
+- Size -1
+- Skill
+- Skill Bonus
+- Skill Penalty
+- Sleep Reduction
+- Super Powers
+- Toughness
+- Wall Walker
+
+### swade-core-rules.swade-rules.json
+
+**新增 (9):**
+- 1. Characters
+- 2. Gear
+- 3. Rules
+- 4. The Adventure Toolkit
+- 5. Powers
+- 6. Bestiary
+- 7. Game Mastering
+- Extra Art
+- Introduction
+
+### swade-core-rules.swade-skills.json
+
+**新增 (33):**
+- Academics
+- Athletics
+- Battle
+- Boating
+- Common Knowledge
+- Driving
+- Electronics
+- Faith
+- Fighting
+- Focus
+- Gambling
+- Hacking
+- Healing
+- Intimidation
+- Language
+- Notice
+- Occult
+- Performance
+- Persuasion
+- Piloting
+- Psionics
+- Repair
+- Research
+- Riding
+- Science
+- Shooting
+- Spellcasting
+- Stealth
+- Survival
+- Taunt
+- Thievery
+- Unskilled Attempt
+- Weird Science
+
+### swade-core-rules.swade-special-weapons.json
+
+**新增 (51):**
+- 120mm Tank Gun (AP Rounds)
+- 120mm Tank Gun (HE Rounds)
+- 125mm Tank Gun (AP Rounds)
+- 125mm Tank Gun (HE Rounds)
+- 2 pd AT Gun (AP Rounds)
+- 2 pd AT Gun (HE Rounds)
+- 20mm Cannon
+- 25mm Cannon
+- 30mm Cannon
+- 37mm AT Gun (AP Rounds)
+- 37mm AT Gun (HE Rounds)
+- 40mm Cannon (AP Rounds)
+- 40mm Cannon (HE Rounds)
+- 57mm AT Gun (AP Rounds)
+- 57mm AT Gun (HE Rounds)
+- 75mm Tank Gun (AP Rounds)
+- 75mm Tank Gun (HE Rounds)
+- 76mm Tank Gun (AP Rounds)
+- 76mm Tank Gun (HE Rounds)
+- 88mm Tank Gun (AP Rounds)
+- 88mm Tank Gun (HE Rounds)
+- AT-4
+- Anti-Personnel Mine
+- Anti-Tank Mine
+- Bazooka
+- Bombs
+- Bouncing Betty
+- Cannon (12 lb), Canister
+- Cannon (12 lb), Shrapnel
+- Cannon (12 lb), Solid Shot
+- Catapult
+- Claymore Mine
+- Flamethrower
+- Heavy Flamethrower
+- Heavy Laser
+- Heavy Machine Gun
+- Hellfire
+- M203 40MM
+- M72 Law
+- Medium Machine Gun
+- Mk II (WW2 Pineapple)
+- Mk67 (Modern)
+- Panzerschreck
+- Potato Masher (WW2)
+- Sidewinder
+- Smoke Grenade
+- Sparrow
+- Stun Grenade
+- TOW Missile Launcher
+- Torpedo
+- Trebuchet
+
+### swade-core-rules.swade-specialabilities.json
+
+**新增 (49):**
+- Aquatic
+- Burrow
+- Change Form
+- Charm
+- Children of the Night
+- Constrict
+- Construct
+- Disarm
+- Elemental
+- Ethereal
+- Fast Regeneration
+- Fear
+- Fear (-2)
+- Fearless
+- Flight
+- Gaseous Form
+- Grapple
+- Hardy
+- Immunity
+- Infection
+- Infravision
+- Invulnerability
+- Jump
+- Low Light Vision
+- Mist
+- Natural Healing
+- Network (The Nice Way)
+- Network (The Not-So-Nice Way)
+- Night Vision
+- Ornery
+- Poison
+- Poison (-4)
+- Push
+- Regeneration
+- Resilient
+- Seep
+- Sire
+- Slow Regeneration
+- Speed
+- Split
+- Suppressive Fire
+- Swarm
+- Swat
+- Tentacles
+- Treat Wounds
+- Undead
+- Wall Walker
+- Weakness
+- Zombie
+
+### swade-core-rules.swade-tables.json
+
+**新增 (8):**
+- Battle Effects
+- Creative Combat
+- Dynamic Backlash
+- Fear Table
+- Injury Table
+- Out of Control
+- Reaction Table
+- Vehicle Critical Hits
+
+### swade-core-rules.swade-vehicles.json
+
+**新增 (47):**
+- AH-64 Apache
+- AV-8B Harrier
+- B-17 Flying Fortress
+- BF-109
+- BTR 70 APC
+- Bicycle
+- Biplane
+- Carriage
+- Cessna Skyhawk
+- Compact Car
+- Dirt Bike
+- Early Car
+- F-15 Eagle
+- Galleon
+- Galley
+- Helicopter
+- Hover APC
+- Hover Tank
+- Hydrofoil
+- Japanese Zero
+- Jeep
+- Learjet
+- M1A1 Abrams
+- M2 Bradley
+- M4 Sherman
+- M5A1 Stuart
+- Mid-Sized Car
+- Minivan
+- P-51 Mustang
+- PT Boat (WW2)
+- Patrol Boat, River
+- Pz IVJ
+- Pz VI Tiger II
+- Rowboat
+- SU-27
+- Semi-Truck
+- Small Yacht
+- Space Shuttle
+- Speed Boat
+- Spitfire Mk IIA
+- Sports Car
+- Sports Utility Vehicle
+- Street Bike
+- T-34/76
+- T-72 MBT
+- T80 MBT
+- UH-1 (Huey)
+
+### swpf-bestiary.swpf-bestiary-abilities.json
+
+**新增 (78):**
+- Aberration (Type)
+- All-Around Vision
+- Ancestry
+- Animal (Type)
+- Aquatic
+- Archons
+- Armor
+- Aura of Menace
+- Bash
+- Bite
+- Blindsense
+- Breath Weapons
+- Burrow
+- Class Abilities
+- Claws
+- Construct
+- Construct (Type)
+- Coven
+- Darkvision
+- Detect Evil
+- Dragon (Type)
+- Elemental
+- Elemental Resistance
+- Energy Drain
+- Environmental Resistance
+- Environmental Weakness
+- Ethereal
+- Fear
+- Fearless
+- Fey (Type)
+- Flight
+- Gargantuan
+- Hag Common Abilities
+- Hardy
+- Horns
+- Huge
+- Humanoid (Type)
+- Immunity
+- Infection
+- Infestation
+- Innate Powers
+- Invulnerability
+- Large
+- Linnorm Common Abilities
+- Low Light Vision
+- Lycanthropy
+- Magical Beast (Type)
+- Mindless
+- Monstrous Humanoid (Type)
+- Natural Weapons
+- Night Vision
+- Ooze (Type)
+- Outsider (Type)
+- Pack Tactics
+- Paralysis
+- Plant (Type)
+- Poison
+- Pounce
+- Rage
+- Regeneration
+- Rending Attack
+- Resilient
+- Resilient/Very Resilient
+- Shape Change
+- Size
+- Stun
+- Summon
+- Swallow Whole
+- Swat
+- Tentacles
+- Trample
+- Undead
+- Undead (Type)
+- Unstoppable
+- Vermin (Type)
+- Very Resilient
+- Wall Walker
+- Weakness
+
+### swpf-bestiary.swpf-bestiary-ancestries.json
+
+**新增 (6):**
+- Centaur Ancestry
+- Elf Ancestry
+- Giant Ancestry
+- Goblin Ancestry
+- Ogre Ancestry
+- Orc Ancestry
+
+### swpf-bestiary.swpf-bestiary-journal.json
+
+**新增 (4):**
+- Bestiary
+- Designing Threats
+- Introduction
+- Keywords
+
+### swpf-bestiary.swpf-bestiary.json
+
+**新增 (268):**
+- Aboleth
+- Air Elemental
+- Air Elemental, Elder
+- Air Elemental, Small
+- Air Mephit
+- Alligator/Crocodile
+- Animal Skeleton
+- Animal Zombie
+- Animated Object
+- Ankheg
+- Annis Hag
+- Auroch
+- Balor
+- Barghest
+- Barghest, greater
+- Basilisk
+- Bear
+- Bear, Dire
+- Beetle, Fire
+- Bird of Prey
+- Black Dragon
+- Black Dragon, Adult
+- Black Dragon, Wyrmling
+- Black pudding
+- Blue Dragon
+- Blue Dragon, Adult
+- Blue Dragon, Wyrmling
+- Boar
+- Boar, Dire
+- Bone Devil
+- Brass Dragon
+- Brass Dragon, Adult
+- Brass Dragon, Wyrmling
+- Bronze Dragon
+- Bronze Dragon, Adult
+- Bronze Dragon, Wyrmling
+- Bugbear
+- Bugbear Executioner
+- Bugbear Raider
+- Bunyip
+- Captain of the guard
+- Cat, Large
+- Cat, Large Dire
+- Cat, Small
+- Centaur
+- Centaur Chieftain
+- Centaur Warrior
+- Clay Golem
+- Cloud Giant
+- Cockatrice
+- Constrictors
+- Copper Dragon
+- Copper Dragon, Adult
+- Copper Dragon, Wyrmling
+- Crag Linnorm
+- Dark Naga
+- Darkmantle
+- Deathweb
+- Dog/Wolf
+- Doppelganger
+- Dragon Turtle
+- Dread Zombie
+- Drider
+- Drow
+- Drow Infiltrator
+- Drow Noble
+- Drow Priestess
+- Dryad
+- Dwarf Skeleton
+- Earth Elemental
+- Earth Elemental, Elder
+- Earth Elemental, Small
+- Earth Mephit
+- Elephant, Common
+- Elephant, Mammoth
+- Elite Guard
+- Ettercap
+- Ettin
+- Ettin Hunter
+- Ettin Reaper
+- Feral Morlock
+- Fire Elemental
+- Fire Elemental, Elder
+- Fire Elemental, Small
+- Fire Giant
+- Fire Mephit
+- Flesh Golem
+- Frost Giant
+- Gargoyle
+- Gelatinous cube
+- Ghast
+- Ghost
+- Ghoul
+- Giant Ant
+- Giant Centipede
+- Giant Crab
+- Giant Eagle
+- Giant Leech
+- Giant Lizard
+- Giant Mosquito
+- Giant Octopus
+- Giant Scorpion
+- Giant Skeleton
+- Giant Slug
+- Giant Spider
+- Giant Stag Beetle
+- Giant Zombie
+- Glabrezu
+- Gnoll
+- Gnoll Lieutenant
+- Gnoll Sergeant
+- Goblin
+- Goblin Commando
+- Goblin Cutthroat
+- Goblin Dog
+- Goblin Snake
+- Goblin Stalker
+- Goblin Warchanter
+- Gold Dragon
+- Gold Dragon, Adult
+- Gold Dragon, Wyrmling
+- Goliath Stag Beetle
+- Green Dragon
+- Green Dragon, Adult
+- Green Dragon, Wyrmling
+- Green Hag
+- Griffon
+- Guardian Naga
+- Harpy
+- Hell Hound
+- Hill Giant
+- Hobgoblin
+- Hobgoblin Brute
+- Hobgoblin Mauler
+- Horse, Heavy
+- Horse, Light
+- Hound Archon
+- Human Zombie
+- Humanoid Skeleton
+- Hydra
+- Ice Devil
+- Ice Golem
+- Ice Linnorm
+- Intellect Devourer
+- Iron Golem
+- Kobold
+- Kobold Raider
+- Kobold Shaman
+- Kyton
+- Kyton Chain Master
+- Kyton Lasher
+- Lamia
+- Lamia Matriarch
+- Lantern Archon
+- Lemure
+- Lich
+- Lion
+- Lizardfolk
+- Manticore
+- Medusa
+- Mimic
+- Minotaur
+- Mohrg
+- Morlock
+- Morlock Alpha
+- Mule
+- Mummy
+- Nessian Hell Hound
+- Night Hag
+- Nightmare
+- Nymph
+- Ochre Jelly
+- Ogre
+- Ogre Mage, Oni
+- Ogre Raider
+- Ogre Spider
+- Ogre Torturer
+- Orc
+- Orc, Berserker
+- Orc, Chieftain
+- Orc, Skoll
+- Otyugh
+- Owlbear
+- Phase spider
+- Phoenix
+- Pit Fiend
+- Pixie
+- Purple Worm
+- Quasit
+- Rakshasa
+- Rat, Dire
+- Red Dragon
+- Red Dragon, Adult
+- Red Dragon, Wyrmling
+- Redcap
+- Regular Guard
+- Relentless Zombie
+- Remorhaz
+- Revenant
+- Rhinoceros
+- Roc
+- Roper
+- Rust Monster
+- Satyr
+- Sea Hag
+- Shadow
+- Shambling Mound
+- Shark
+- Shark, Great White
+- Shocker Lizard
+- Shoggoth
+- Silver Dragon
+- Silver Dragon, Adult
+- Silver Dragon, Wyrmling
+- Sinspawn
+- Skaveling
+- Skeletal Champion
+- Soldier
+- Soldier, Seasoned
+- Spectre
+- Spirit Naga
+- Stone Giant
+- Stone Golem
+- Storm Giant
+- Succubus
+- Swarm
+- Taiga Giant
+- Tarn Linnorm
+- Tarrasque
+- Tatzlwyrm
+- Tendriculos
+- Tentamort
+- Townsfolk
+- Treant
+- Troglodyte
+- Troll
+- Troll, Brute
+- Troll, Feral
+- Trumpet Archon
+- Unicorn
+- Vampire
+- Vargouille
+- Venomous
+- Violet Fungus
+- Vrock
+- Water Elemental
+- Water Elemental, Elder
+- Water Elemental, Small
+- Water Mephit
+- Wendigo
+- Wererat (Hybrid Form)
+- Werewolf (Hybrid Form)
+- White Dragon
+- White Dragon, Adult
+- White Dragon, Wyrmling
+- Wight
+- Will-o’-Wisp
+- Wolf, Dire
+- Wolverine
+- Wolverine, Dire
+- Woolly Rhinoceros
+- Worg
+- Wraith
+- Wyvern
+- Xill
+- Xorn
+- Yeth hound
+- Yeti
+
+### swpf-core-rules.swpf-abilities.json
+
+**新增 (175):**
+- Aberrant (Bloodline)
+- Aberration (Type)
+- Abjuration (Favored)
+- Abjuration (Opposition)
+- Abyssal (Bloodline)
+- Adaptability
+- Agile
+- All-Around Vision
+- Ancestry
+- Animal (Type)
+- Aquatic
+- Arcane (Bloodline)
+- Arcane Background (Cleric)
+- Arcane Bond
+- Arcane School
+- Armor
+- Armor Interference (Bard)
+- Armor Interference (Druid)
+- Armor Interference (Wizard)
+- Armor Restriction (Barbarian)
+- Armor Restriction (Monk)
+- Armor Restriction (Ranger)
+- Armor Restriction (Rogue)
+- Armor Restriction (Sorcerer)
+- Aura of Courage
+- Bash
+- Bite
+- Blindsense
+- Bloodline
+- Breath Weapons
+- Burrow
+- Celestial (Bloodline)
+- Channel Energy
+- Civilization (Community, Nobility)
+- Class Abilities
+- Claws
+- Conjuration (Favored)
+- Conjuration (Opposition)
+- Construct
+- Construct (Type)
+- Damage
+- Darkvision
+- Death
+- Destined (Bloodline)
+- Destruction (Evil, Madness)
+- Detect Evil
+- Disarm
+- Divination (Favored)
+- Divination (Opposition)
+- Draconic (Bloodline)
+- Dragon (Type)
+- Dwarf
+- Elemental
+- Elemental (Air, Earth, Fire, Water)
+- Elemental (Bloodline)
+- Elf
+- Elven Magic
+- Enchantment (Favored)
+- Enchantment (Opposition)
+- Energy Drain
+- Environmental Resistance
+- Environmental Weakness
+- Ethereal
+- Evocation (Favored)
+- Evocation (Opposition)
+- Fast
+- Favored Enemy
+- Favored Terrain
+- Fear
+- Fearless
+- Fey (Bloodline)
+- Fey (Type)
+- Flexibility
+- Flight
+- Frenzy
+- Gargantuan
+- Glory (Good, Healing)
+- Gnome
+- Gnome Magic
+- Grapple
+- Half-Elf
+- Half-Orc
+- Halfling
+- Hardy
+- Horns
+- Human
+- Humanoid (Type)
+- Illusion (Favored)
+- Illusion (Opposition)
+- Immunity
+- Improved Frenzy
+- Infection
+- Infernal (Bloodline)
+- Innate Powers
+- Intelligence
+- Intimidating
+- Invulnerability
+- Iron Constitution
+- Jump
+- Keen Senses
+- Knowledge
+- Languages
+- Low Light Vision
+- Luck
+- Lucky
+- Magic (Rune)
+- Magical Beast (Type)
+- Martial Discipline
+- Martial Flexibility
+- Mindless
+- Mobility
+- Monstrous Humanoid (Type)
+- Natural Healing
+- Natural Weapons
+- Nature (Animal, Plant, Weather)
+- Nature Bond
+- Nature Sense
+- Necromancy (Favored)
+- Necromancy (Opposition)
+- Network (The Nice Way)
+- Network (The Not-So-Nice Way)
+- Night Vision
+- Obsessive
+- Ooze (Type)
+- Orc Ferocity
+- Outsider
+- Outsider (Type)
+- Pack Tactics
+- Paralysis
+- Plant (Type)
+- Poison
+- Pounce
+- Protection
+- Push
+- Rage
+- Reduced Pace
+- Regeneration
+- Rending Attack
+- Resilient
+- Secret Language
+- Sharp Tongued
+- Size
+- Size -1
+- Slender
+- Smite Evil
+- Sneak Attack
+- Spellbooks
+- Stone Cunning
+- Strength
+- Strong
+- Stun
+- Stunning Fist
+- Sun
+- Sure-Footed
+- Swallow Whole
+- Swat
+- Tentacles
+- Tough
+- Trample
+- Transmutation (Favored)
+- Transmutation (Opposition)
+- Travel
+- Treat Wounds
+- Trickery
+- Unarmed Strike
+- Undead
+- Undead (Bloodline)
+- Undead (Type)
+- Unstoppable
+- Vermin (Type)
+- Very Resilient
+- Wall Walker
+- War
+- Weakness
+- Wilderness Stride
+
+### swpf-core-rules.swpf-actors.json
+
+**新增 (59):**
+- Airship (Dirigible)
+- Alchemical Dragon
+- Alligator/crocodile
+- Amiri
+- Amiri (Seasoned)
+- Bear
+- Bird Of Prey
+- Boar
+- Carriage
+- Cart
+- Cat, Large
+- Cat, Small
+- Dog/wolf
+- Droogami
+- Experienced Soldier
+- Ezren
+- Galley
+- Glider
+- Harsk
+- Horse, Heavy
+- Horse, Light
+- Keelboat
+- Kyra
+- Kyra (Seasoned)
+- Lem
+- Lem (Seasoned)
+- Lini
+- Lini (Seasoned)
+- Lion
+- Longship
+- Merisiel
+- Merisiel (Seasoned)
+- Mule
+- Rowboat
+- Sailing Ship
+- Sailing Sloop
+- Sajan
+- Seelah
+- Seelah (Seasoned)
+- Seoni
+- Seoni (Seasoned)
+- Shark
+- Skeleton, Human
+- Sled
+- Snake, Constrictor
+- Snake, Venomous
+- Soldier
+- Summon Ally: Attendant
+- Summon Ally: Bodyguard
+- Summon Ally: Sentinel
+- Swarm
+- Town/City Guard
+- Townsfolk
+- Valeros
+- Valeros (Seasoned)
+- Wagon, Heavy
+- Wagon, Light
+- Warship (Galleon)
+- Zombie, Human
+
+### swpf-core-rules.swpf-edges.json
+
+**新增 (200):**
+- Ace
+- Acrobat
+- Advanced Bloodline
+- Alertness
+- Ambidextrous
+- Arcane Archer
+- Arcane Archer II
+- Arcane Archer III
+- Arcane Armor
+- Arcane Background (Bard)
+- Arcane Background (Druid)
+- Arcane Background (Magic)
+- Arcane Background (Miracles)
+- Arcane Background (Sorcerer)
+- Arcane Background (Wizard)
+- Arcane Mastery (Sorcerer)
+- Arcane Mastery (Wizard)
+- Arcane Resistance
+- Arcane Trickster
+- Arcane Trickster II
+- Arcane Trickster III
+- Aristocrat
+- Artificer
+- Assassin
+- Assassin II
+- Assassin III
+- Attractive
+- Barbarian
+- Bard
+- Beast Bond
+- Beast Master
+- Block
+- Bolster
+- Born in the Saddle
+- Brave
+- Brawler
+- Brawny
+- Bruiser
+- Brute
+- Calculating
+- Champion
+- Channeling
+- Charismatic
+- Cleric
+- Combat Acrobat
+- Combat Reflexes
+- Command
+- Command Presence
+- Common Bond
+- Concentration
+- Connections
+- Counterattack
+- Countersong
+- Danger Sense
+- Dead Shot
+- Deadly Blow
+- Destroy Undead
+- Dirge of Doom
+- Divine Mastery (Cleric)
+- Divine Mastery (Druid)
+- Dodge
+- Dragon Disciple
+- Dragon Disciple II
+- Dragon Disciple III
+- Druid
+- Duelist
+- Duelist II
+- Duelist III
+- Elan
+- Eldritch Inspiration
+- Eldritch Knight
+- Eldritch Knight II
+- Eldritch Knight III
+- Expert
+- Extraction
+- Fame
+- Famous
+- Fast Healer
+- Favored Powers (Cleric)
+- Favored Powers (Druid)
+- Favored Powers (Sorcerer)
+- Favored Powers (Wizard)
+- Feint
+- Fervor
+- Fighter
+- First Strike
+- Fix It
+- Fleet-Footed
+- Followers
+- Formation Fighter
+- Free Runner
+- Frenzy
+- Giant Killer
+- Great Ki
+- Great Luck
+- Hard To Kill
+- Harder To Kill
+- Healer
+- Hold the Line!
+- Holy/Unholy Warrior
+- Humiliate
+- Improved Arcane Resistance
+- Improved Block
+- Improved Counterattack
+- Improved Dodge
+- Improved Extraction
+- Improved First Strike
+- Improved Frenzy
+- Improved Level Headed
+- Improved Nerves of Steel
+- Improved Rapid Shot
+- Improved Sweep
+- Improved Trademark Weapon
+- Improvisational Fighter
+- Inspire
+- Inspire Heroics
+- Intimidating Glare
+- Investigator
+- Iron Jaw
+- Iron Will
+- Jack-Of-All-Trades
+- Killer Instinct
+- Level Headed
+- Linguist
+- Loremaster
+- Loremaster II
+- Loremaster III
+- Luck
+- Marksman
+- Martial Flexibility (Improved)
+- Martial Prowess
+- Master
+- Master Hunter
+- Master Tactician
+- Master of Arms
+- Menacing
+- Mercy
+- Mighty Blow
+- Monk
+- Mount
+- Mystic Powers (Monk)
+- Mystic Powers (Paladin)
+- Mystic Powers (Ranger)
+- Mystic Theurge
+- Mystic Theurge II
+- Mystic Theurge III
+- Natural Leader
+- Nerves of Steel
+- New Powers
+- No Mercy
+- Opportunist
+- Paladin
+- Pathfinder Chronicler
+- Pathfinder Chronicler II
+- Pathfinder Chronicler III
+- Power Points
+- Power Surge
+- Powerful Blow
+- Professional
+- Provoke
+- Quarry
+- Quick
+- Rabble-Rouser
+- Ranger
+- Rapid Reload
+- Rapid Shot
+- Reliable
+- Retort
+- Rogue
+- Scavenger
+- Scholar
+- Shadowdancer
+- Shadowdancer II
+- Shadowdancer III
+- Sidekick
+- Soldier
+- Sorcerer
+- Soul Drain
+- Steady Hands
+- Streetwise
+- Strength Surge
+- Strong Willed
+- Sweep
+- Tactician
+- Thief
+- Tough As Nails
+- Tougher Than Nails
+- Trademark Weapon
+- Trap Sense
+- Troubadour
+- Two-Weapon Fighting
+- Uncanny Reflexes
+- Very Attractive
+- Weapon Master
+- Wholeness of Body
+- Wild Shape
+- Wizard
+- Woodsman
+- Work the Crowd
+- Work the Room
+
+### swpf-core-rules.swpf-gear.json
+
+**新增 (405):**
+- Acid flask
+- Adventurer's Kit
+- Alchemists Fire
+- Ale, gallon
+- Ale, mug
+- Amulet of Natural Armor, Major
+- Amulet of Natural Armor, Minor
+- Amulet of the Planes
+- Antitoxin, Vial
+- Armor Spikes
+- Arrows
+- Artisan's Tools
+- Artisan's outfit
+- Assassin's Dagger
+- Axe, Battle
+- Axe, Great
+- Axe, Hand
+- Backpack
+- Bag of Holding, Major
+- Bag of Holding, Minor
+- Bag of Tricks, Grey
+- Bag of Tricks, Tan
+- Ballista
+- Banded Mail of Luck
+- Banquet (per person)
+- Bedroll
+- Belt of Dwarvenkind
+- Belt of Physical Might, Major
+- Belt of Physical Might, Minor
+- Belt of Physical Perfection, Major
+- Belt of Physical Perfection, Minor
+- Bit and Bridle
+- Blanket
+- Block and Tackle
+- Blowgun
+- Bolas
+- Bolts
+- Boots of Elvenkind
+- Boots of Levitation
+- Boots of Speed
+- Boots of Striding and Springing
+- Boots, Winged
+- Bottle of Air
+- Bottle, glass
+- Bow (composite)
+- Bow (long)
+- Bow (short)
+- Bracelet of Friends
+- Bracers of Armor, Major
+- Bracers of Armor, Minor
+- Bread, loaf
+- Caltrops
+- Candle (1 hr, 2" radius)
+- Candle of Truth
+- Cannon
+- Canvas (sq yd)
+- Cape of Montebank
+- Carpet of Flying, Large
+- Carpet of Flying, Small
+- Case, map or scroll
+- Catapult
+- Celestial Armor
+- Chain
+- Chain Hood/Helm
+- Chalk
+- Cheese, hunk
+- Chest (small)
+- Chime of Opening
+- Climber's Kit (negate 2 penalty)
+- Cloak of Displacement
+- Cloak of Elvenkind
+- Cloak of Etherealness
+- Club, Heavy
+- Club, Light
+- Cold weather outfit
+- Copper
+- Crossbow (Hand)
+- Crossbow (Hand, repeating)
+- Crossbow (Heavy)
+- Crossbow (Heavy, repeating)
+- Crossbow (Light)
+- Crossbow (Light, repeating)
+- Crowbar
+- Dagger/Knife
+- Darts(blowgun)
+- Decanter of Endless Water
+- Dimensional Shackles
+- Disguise Kit (free Performance reroll)
+- Dog, guard
+- Donkey/Mule
+- Dried fruit, bag
+- Dust of Appearance
+- Dust of Disappearance
+- Efficient Quiver
+- Elixir of Fire Breath
+- Everburning Torch
+- Eyes of the Eagle
+- Falchion
+- Feather Token, Anchor
+- Feather Token, Bird
+- Feather Token, Fan
+- Feather Token, Swan Boat
+- Feather Token, Tree
+- Feather Token, Whip
+- Feed, animal (per day)
+- Figurine of Wondrous Power, Bronze Griffon
+- Figurine of Wondrous Power, Ebony Fly
+- Figurine of Wondrous Power, Golden Lions
+- Figurine of Wondrous Power, Ivory Goats
+- Figurine of Wondrous Power, Marble Elephant
+- Figurine of Wondrous Power, Obsidian Steed
+- Figurine of Wondrous Power, Onyx Dog
+- Figurine of Wondrous Power, Serpentine Owl
+- Figurine of Wondrous Power, Silver Raven
+- Firewood (per day)
+- Fishhook
+- Fishing Net (24 sq. ft)
+- Flail
+- Flail (Heavy)
+- Flame Toungue
+- Flask or Jug, ceramic
+- Flint and Steel
+- Gauntlet of Rust
+- Gauntlet, locked
+- Glaive
+- Gloves of Storing
+- Gloves of Swimming and Climbing
+- Goggles of Night
+- Gold
+- Grappling Hook
+- Guisarme
+- Halberd
+- Hammer
+- Hand of Glory
+- Hand of the Mage
+- Handy Haversack
+- Harp of Charming
+- Hat of Disguise
+- Headband of Mental Prowess, Major
+- Headband of Mental Prowess, Minor
+- Headband of Mental Superiority, Major
+- Headband of Mental Superiority, Minor
+- Healer's Kit (-1 healing w/o)
+- Heavy Breastplate
+- Heavy Greaves
+- Heavy Helm
+- Heavy Helm (enclosed)
+- Heavy Shield
+- Heavy Vambraces
+- Helm of Comprehend Languages
+- Helm of Teleportation
+- Holy Avenger
+- Holy Symbol, silver
+- Holy Symbol, wood
+- Holy Water
+- Horse Armor (Chain)
+- Horse Armor (Leather)
+- Horse Armor (Plate)
+- Horse, heavy
+- Horse, light
+- Horseshoes of Speed
+- Hourglass
+- Immovable Rod
+- Improvised Weapon (Heavy)
+- Improvised Weapon (Light)
+- Improvised Weapon (Medium)
+- Inkpen (quill)
+- Inn, common (per day)
+- Inn, good (per day)
+- Inn, poor (per day)
+- Ioun Stone, Clear
+- Ioun Stone, Dark Blue
+- Ioun Stone, Deep Red
+- Ioun Stone, Green
+- Ioun Stone, Incandescent Blue
+- Ioun Stone, Iridescent
+- Ioun Stone, Lavender and Green
+- Ioun Stone, Pale Blue
+- Ioun Stone, Pale Lavender
+- Ioun Stone, Pearly White
+- Ioun Stone, Pink
+- Ioun Stone, Scarlet and Blue
+- Ioun Stone, Vibrant Purple
+- Javelin of Lightning
+- Katana
+- Lamp, Small (3" radius)
+- Lance
+- Lantern of Revealing
+- Lantern, bullseye (10" cone)
+- Lantern, hooded (6" radius)
+- Light Cap (head)
+- Light Leggings (legs)
+- Light Shield
+- Light Tunic or Jacket (torso, arms)
+- Lion Shield
+- Luck Blade
+- Mace, Heavy
+- Mace, Light
+- Magnifying Glass
+- Manacles
+- Manual of Attribute Increase
+- Maul
+- Meal, common (per day)
+- Meal, good (per day)
+- Meal, poor (per day)
+- Medium Leggings
+- Medium Shield
+- Medium Shirt
+- Merchant's outfit
+- Mirror, small steel
+- Morningstar
+- Mug/Tankard, ceramic
+- Musical Instrument
+- Natural Bite
+- Natural Claws
+- Natural Horns
+- Necklace of Fireballs, Major
+- Necklace of Fireballs, Minor
+- Net (Weighted)
+- Noble's outfit
+- Oathbow
+- Oil (1 pint)
+- Paper
+- Parchment
+- Pearl of Power, Novice
+- Pearl of Power, Seasoned
+- Pearl of Power, Veteran
+- Pearl of the Sirens
+- Periapt of Health
+- Periapt of Proof Against Poison
+- Pick, Miner's
+- Pike
+- Platinum
+- Pole, 12'
+- Pony, heavy
+- Pony, light
+- Portable Hole
+- Pot, iron
+- Potion of Damage Field w/Damage
+- Potion of Major Healing
+- Potion of Major Protection
+- Potion of Major Relief and Restoration
+- Potion of Major Wall Walker
+- Potion of Minor Arcane Protection
+- Potion of Minor Boost Trait
+- Potion of Minor Darksight
+- Potion of Minor Empathy
+- Potion of Minor Environmental Protection
+- Potion of Minor Fly
+- Potion of Minor Growth
+- Potion of Minor Healing
+- Potion of Minor Healing and Neutralize Poison or Disease
+- Potion of Minor Intangibility
+- Potion of Minor Protection
+- Potion of Minor Relief and Restoration
+- Potion of Minor Speed
+- Potion of Minor Speed and Quickness
+- Pouch, belt
+- Ram
+- Ranseur
+- Rapier
+- Rhino Hide
+- Ring of Counterspells
+- Ring of Energy Resistance
+- Ring of Evasion
+- Ring of Feather Falling
+- Ring of Invisibility
+- Ring of Protection, Major
+- Ring of Protection, Minor
+- Ring of Regeneration
+- Ring of Spell Storing
+- Ring of Sustenance
+- Ring of Telekinesis
+- Ring of Three Wishes
+- Ring of Water Walking
+- Ring of the Ram
+- Ring of the Skillful
+- Robe of Blending
+- Robe of Bone
+- Robe of Scintillating Colors
+- Robe of Useful Items
+- Rod of Absorption
+- Rod of Metamagic
+- Rod of Negation
+- Rod of Rulership
+- Rod of Wonder
+- Rod of the Python
+- Rope of Climbing
+- Rope of Entanglement
+- Rope, hemp (10"/20 yards)
+- Rope, silk (10"/20 yards)
+- Royal outfit
+- Sack
+- Saddle, riding
+- Saddle, war (free reroll Riding)
+- Saddlebags (empty)
+- Sap
+- Scale, Merchant's
+- Scarab of Protection
+- Scarab, Golembane
+- Scimitar
+- Scroll of Blast
+- Scroll of Blind
+- Scroll of Bolt
+- Scroll of Bolt, AP
+- Scroll of Deflection
+- Scroll of Detect Arcana
+- Scroll of Dispel
+- Scroll of Fear
+- Scroll of Growth
+- Scroll of Healing
+- Scroll of Illusion
+- Scroll of Invisibility
+- Scroll of Lower Trait
+- Scroll of Sloth
+- Scroll of Slumber
+- Scroll of Smite
+- Scroll of Stun
+- Scroll of Teleport
+- Scroll of Zombie
+- Scythe
+- Sealing Wax, stick
+- Sewing Needle
+- Shield Spikes
+- Short Spear/Javelin
+- Shovel
+- Shuriken
+- Sickle
+- Siege Tower
+- Silver
+- Sledge
+- Sleep Arrow
+- Sling
+- Sling Stones
+- Slippers of Spider Climbing
+- Smoke Stick
+- Soap
+- Sovereign Glue
+- Spear
+- Spear, Short
+- Spell Component Pouch
+- Spellbook, Wizard (blank)
+- Spike (piton)
+- Spiked Chain
+- Spyglass (Notice +2 at range)
+- Stabling (per day)
+- Staff of Abjuration
+- Staff of Charming
+- Staff of Defense
+- Staff of Evocation
+- Staff of Healing
+- Staff of Life
+- Staff of Necromancy
+- Staff of Power
+- Staff/Quarterstaff
+- Starknife
+- Stone of Good Luck
+- Sunrod
+- Sustaining Spoon
+- Sword of the Planes
+- Sword, Bastard
+- Sword, Great
+- Sword, Long
+- Sword, Short
+- Tanglefoot Bag
+- Tent, canvas (2 person)
+- Thieves' Tools (-2 Thievery w/o)
+- Thunderstone
+- Tindertwig
+- Torch (1 hour, 4" radius)
+- Trail Ration (per day)
+- Traveler's outfit
+- Trebuchet
+- Trident
+- Unarmed Strike (Monk)
+- Universal Solvent
+- Vial, small
+- Wand of Banish
+- Wand of Blast
+- Wand of Bolt
+- Wand of Boost Trait
+- Wand of Deflection
+- Wand of Detect Arcana
+- Wand of Disguise
+- Wand of Dispel
+- Wand of Entangle
+- Wand of Fly
+- Wand of Havoc
+- Wand of Healing
+- Wand of Invisibility
+- Wand of Lower Trait
+- Wand of Protection
+- Wand of Quickness
+- Wand of Shrink
+- Wand of Slumber
+- Wand of Speak Language
+- Wand of Wall Walker
+- Warhammer
+- Waterskin (filled)
+- Whetstone
+- Whip
+- Whistle, ceramic
+- Wine, gallon
+- Wine, mug
+- Wings of Flying
+
+### swpf-core-rules.swpf-hindrances.json
+
+**新增 (59):**
+- All Thumbs
+- Anemic
+- Arrogant
+- Bad Eyes
+- Bad Luck
+- Big Mouth
+- Blind
+- Bloodthirsty
+- Can't Swim
+- Cautious
+- Clueless
+- Clumsy
+- Code of Honor
+- Code of Honor (Paladin)
+- Curious
+- Death Wish
+- Delusional
+- Driven
+- Elderly
+- Enemy
+- Greedy
+- Habit
+- Hard of Hearing
+- Heroic
+- Hesitant
+- Illiterate
+- Impulsive
+- Jealous
+- Loyal
+- Mean
+- Mild Mannered
+- Mute
+- Obese
+- Obligation
+- One Arm
+- One Eye
+- Outsider
+- Overconfident
+- Pacifist
+- Phobia
+- Poverty
+- Quirk
+- Ruthless
+- Secret
+- Shamed
+- Slow
+- Small
+- Stubborn
+- Suspicious
+- Thin Skinned
+- Timid
+- Tongue-Tied
+- Ugly
+- Vengeful
+- Vow
+- Vow (Major, Cleric)
+- Vow (Major, Druid)
+- Wanted
+- Young
+
+### swpf-core-rules.swpf-macros.json
+
+**新增 (2):**
+- Fear Table (Savage Pathfinder)
+- Patch All Actors (Savage Pathfinder)
+
+### swpf-core-rules.swpf-powers.json
+
+**新增 (65):**
+- Arcane Protection
+- Baleful Polymorph
+- Banish
+- Barrier
+- Beast Friend
+- Blast
+- Blind
+- Bolt
+- Boost/Lower Trait
+- Burrow
+- Burst
+- Confusion
+- Conjure Item
+- Curse
+- Damage Field
+- Darksight
+- Deflection
+- Destroy Undead
+- Detect/Conceal Arcana
+- Disguise
+- Dispel
+- Divination
+- Drain Power Points
+- Elemental Manipulation
+- Empathy
+- Entangle
+- Environmental Protection
+- Farsight
+- Fear
+- Fly
+- Growth/Shrink
+- Havoc
+- Healing
+- Illusion
+- Intangibility
+- Invisibility
+- Light / Darkness
+- Locate
+- Mind Link
+- Mind Reading
+- Mind Wipe
+- Object Reading
+- Planar Binding
+- Plane Shift
+- Protection
+- Puppet
+- Relief
+- Resurrection
+- Sanctuary
+- Scrying
+- Shape Change
+- Sloth/Speed
+- Slumber
+- Smite
+- Sound/Silence
+- Speak Language
+- Stun
+- Summon Ally
+- Telekinesis
+- Teleport
+- Time Stop
+- Wall Walker
+- Warrior's Gift
+- Wish
+- Zombie
+
+### swpf-core-rules.swpf-rules.json
+
+**新增 (9):**
+- Bestiary
+- Characters
+- Game Mastering
+- Gear
+- Introduction
+- Magic Items
+- Powers
+- Rules
+- The Adventure Tool Kit
+
+### swpf-core-rules.swpf-skills.json
+
+**新增 (26):**
+- Academics
+- Athletics
+- Battle
+- Boating
+- Common Knowledge
+- Driving
+- Faith
+- Fighting
+- Gambling
+- Healing
+- Intimidation
+- Notice
+- Occult
+- Performance
+- Persuasion
+- Piloting
+- Repair
+- Riding
+- Science
+- Shooting
+- Spellcasting
+- Stealth
+- Survival
+- Taunt
+- Thievery
+- Unskilled Attempt
+
+### swpf-core-rules.swpf-tables.json
+
+**新增 (18):**
+- Allied Personalities
+- Available Armor & Weapons
+- Available Potions
+- Available Rings
+- Available Rods & Staves
+- Available Scrolls
+- Available Wands
+- Bag of Tricks
+- Battle Effects
+- Creative Combat
+- Fear
+- GutsInjury
+- HeadInjury
+- Injury
+- Other Item Categories
+- Reaction
+- Robe of Useful Items
+- Rod of Wonder Activation

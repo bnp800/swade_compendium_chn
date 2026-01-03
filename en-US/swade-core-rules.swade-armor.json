@@ -1,304 +1,1254 @@
 {
-    "entries": {
-        "Infantry Battle Suit": {
-            "name": "Infantry Battle Suit",
-            "description": "<article class=\"swade-core\"><p>A full suit of armor with boots and gloves.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p></article>",
-            "category": "Futuristic"
+  "label": "Armor",
+  "mapping": {
+    "description": "system.description",
+    "notes": "system.notes",
+    "source": "system.source",
+    "category": "system.category",
+    "actions": {
+      "path": "system.actions",
+      "converter": "actions"
+    },
+    "requirements": {
+      "path": "system.requirements",
+      "converter": "requirements"
+    },
+    "trapping": "system.trapping",
+    "damage": "system.damage",
+    "range": "system.range",
+    "ap": "system.ap",
+    "parry": "system.parry",
+    "armor": "system.armor",
+    "toughness": "system.toughness",
+    "effects": {
+      "path": "effects",
+      "converter": "effects"
+    },
+    "quantity": "system.quantity",
+    "weight": "system.weight",
+    "price": "system.price",
+    "minStr": "system.minStr",
+    "isNaturalArmor": "system.isNaturalArmor",
+    "isHeavyArmor": "system.isHeavyArmor",
+    "locations": {
+      "path": "system.locations",
+      "converter": "nestedContent"
+    },
+    "rof": "system.rof",
+    "shots": "system.shots",
+    "ammo": "system.ammo",
+    "reloadType": "system.reloadType",
+    "rank": "system.rank",
+    "pp": "system.pp",
+    "duration": "system.duration",
+    "arcane": "system.arcane",
+    "severity": "system.severity",
+    "major": "system.major",
+    "cover": "system.cover"
+  },
+  "entries": {
+    "Infantry Battle Suit": {
+      "name": "Infantry Battle Suit",
+      "description": "<p>A full suit of armor with boots and gloves.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Futuristic",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 12,
+      "price": 800,
+      "minStr": "d6",
+      "armor": 6,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": true,
+        "torso": true
+      }
+    },
+    "Robes": {
+      "name": "Robes",
+      "description": "<p>Heavy winter clothing, supple leather armor, soft hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 8,
+      "price": 30,
+      "minStr": "d4",
+      "armor": 1,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": true,
+        "torso": true
+      }
+    },
+    "Kevlar helmet": {
+      "name": "Kevlar helmet",
+      "description": "<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 80,
+      "minStr": "d4",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Polymer Shield, large": {
+      "name": "Polymer Shield, large",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Polymer shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +4 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "00njamxonm": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Robes": {
-            "name": "Robes",
-            "description": "<article class=\"swade-core\"><p>Heavy winter clothing, supple leather armor, soft hides.</p></article>",
-            "category": "Medieval & Ancient"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 6,
+      "price": 400,
+      "parry": 3,
+      "minStr": "d4",
+      "cover": -4
+    },
+    "Plate Barding (horse)": {
+      "name": "Plate Barding (horse)",
+      "description": "<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 50,
+      "price": 1500,
+      "minStr": "d10",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Leggings (Chain Mail)": {
+      "name": "Leggings (Chain Mail)",
+      "description": "<p>Chain, splint, metal scale, ring mail, samurai armor.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 10,
+      "price": 150,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Leggings (Cloth/Light Leather)": {
+      "name": "Leggings (Cloth/Light Leather)",
+      "description": "<p>Heavy winter clothing, supple leather armor, soft hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 20,
+      "minStr": "d4",
+      "armor": 1,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Cap (Cloth/Light Leather)": {
+      "name": "Cap (Cloth/Light Leather)",
+      "description": "<p>Heavy winter clothing, supple leather armor, soft hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 1,
+      "price": 5,
+      "minStr": "d4",
+      "armor": 1,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Greaves (Bronze Armor)": {
+      "name": "Greaves (Bronze Armor)",
+      "description": "<p>Typically only found in ancient times or pre-iron civilizations.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 6,
+      "price": 50,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Chain Hood or Helm": {
+      "name": "Chain Hood or Helm",
+      "description": "<p>Chain, splint, metal scale, ring mail, samurai armor.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 4,
+      "price": 25,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Kevlar Vest with ceramic inserts": {
+      "name": "Kevlar Vest with ceramic inserts",
+      "description": "<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 17,
+      "price": 500,
+      "minStr": "d8",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Small Shield": {
+      "name": "Small Shield",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Medieval shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "97x0icqf0a": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Kevlar helmet": {
-            "name": "Kevlar helmet",
-            "description": "<article class=\"swade-core\"><p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@Compendium[swade-core-rules.swade-rules.Ballistic Protection]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p></article>",
-            "category": "Modern"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 0,
+      "weight": 4,
+      "price": 50,
+      "parry": 1,
+      "minStr": "d4",
+      "cover": 1
+    },
+    "Cap (Thick Leather/Tough Hides)": {
+      "name": "Cap (Thick Leather/Tough Hides)",
+      "description": "<p>Boiled leather, cuir bouilli, alligator hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 1,
+      "price": 20,
+      "minStr": "d6",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Kevlar Vest": {
+      "name": "Kevlar Vest",
+      "description": "<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 200,
+      "minStr": "d6",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Heavy Helm": {
+      "name": "Heavy Helm",
+      "description": "<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 4,
+      "price": 100,
+      "minStr": "d10",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Kevlar Riding Jeans": {
+      "name": "Kevlar Riding Jeans",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 4,
+      "price": 175,
+      "minStr": "d4",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Battle Helmet w/ Energy Skin": {
+      "name": "Battle Helmet w/ Energy Skin",
+      "description": "<p>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} used by private or state armed forces.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02energyskin0000]{Energy Skin}:</strong> This armor is treated with an &ldquo;energy skin&rdquo; (or skein) to diffuse energy, reducing damage from lasers by 4. This costs 50% of the armor treated and is very shiny, subtracting 2 from @Compendium[swade-core-rules.swade-skills.Stealth]{Stealth} rolls based on vision.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}</strong>: Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Futuristic",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 2,
+      "price": 150,
+      "minStr": "d6",
+      "armor": 6,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Bronze Helmet": {
+      "name": "Bronze Helmet",
+      "description": "<p>Typically only found in ancient times or pre-iron civilizations.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 6,
+      "price": 25,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Polymer Shield, medium": {
+      "name": "Polymer Shield, medium",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Polymer shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +4 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "8x1g4vg5j4": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Polymer Shield, large": {
-            "name": "Polymer Shield, large",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Polymer shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +4 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "00njamxonm": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 4,
+      "price": 300,
+      "parry": 2,
+      "minStr": "d4",
+      "cover": -2
+    },
+    "Large Shield": {
+      "name": "Large Shield",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Medieval shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "jnkpnzaoje": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Plate Barding (horse)": {
-            "name": "Plate Barding (horse)",
-            "description": "<article class=\"swade-core\"><p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p></article>",
-            "category": "Medieval & Ancient"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 12,
+      "price": 200,
+      "parry": 3,
+      "minStr": "d8",
+      "cover": -4
+    },
+    "Battle Helmet": {
+      "name": "Battle Helmet",
+      "description": "<p>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} used by private or state armed forces.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}</strong>: Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Futuristic",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 2,
+      "price": 100,
+      "minStr": "d6",
+      "armor": 6,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Kevlar Riding Jacket": {
+      "name": "Kevlar Riding Jacket",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 8,
+      "price": 350,
+      "minStr": "d4",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Bike helmet": {
+      "name": "Bike helmet",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 1,
+      "price": 50,
+      "minStr": "d4",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Vambraces (Plate Mail)": {
+      "name": "Vambraces (Plate Mail)",
+      "description": "<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 10,
+      "price": 200,
+      "minStr": "d10",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Greaves (Plate Mail)": {
+      "name": "Greaves (Plate Mail)",
+      "description": "<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 10,
+      "price": 200,
+      "minStr": "d10",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Jacket (Thick Leather/Tough Hides)": {
+      "name": "Jacket (Thick Leather/Tough Hides)",
+      "description": "<p>Boiled leather, cuir bouilli, alligator hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 8,
+      "price": 80,
+      "minStr": "d6",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Infantry Battle Suit w/ Energy Skin": {
+      "name": "Infantry Battle Suit w/ Energy Skin",
+      "description": "<p>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} used by private or state armed forces.</p>\n<p>A full suit of armor with boots and gloves.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02energyskin0000]{Energy Skin}:</strong> This armor is treated with an &ldquo;energy skin&rdquo; (or skein) to diffuse energy, reducing damage from lasers by 4. This costs 50% of the armor treated and is very shiny, subtracting 2 from @Compendium[swade-core-rules.swade-skills.Stealth]{Stealth} rolls based on vision.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "notes": "A full suit of armor with boots and gloves.",
+      "source": "SWADE Core Rules",
+      "category": "Futuristic",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 12,
+      "price": 1200,
+      "minStr": "d6",
+      "armor": 6,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": true,
+        "torso": true
+      }
+    },
+    "Heavy Helm, Enclosed": {
+      "name": "Heavy Helm, Enclosed",
+      "description": "<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>\n<p>&ndash;1 to vision-based @Compendium[swade-core-rules.swade-skills.Notice]{Notice} rolls.</p>",
+      "notes": "–1 to vision-based Notice rolls.",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 8,
+      "price": 200,
+      "minStr": "d10",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Flak Jacket (Vietnam-era)": {
+      "name": "Flak Jacket (Vietnam-era)",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 10,
+      "price": 40,
+      "minStr": "d6",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Thick Coat, Leather Jacket": {
+      "name": "Thick Coat, Leather Jacket",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 100,
+      "minStr": "d4",
+      "armor": 1,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Vambraces (Bronze Armor)": {
+      "name": "Vambraces (Bronze Armor)",
+      "description": "<p>Typically only found in ancient times or pre-iron civilizations.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 40,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Bronze Barding (horse)": {
+      "name": "Bronze Barding (horse)",
+      "description": "<p>Typically only found in ancient times or pre-iron civilizations.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 50,
+      "price": 1500,
+      "minStr": "d10",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Leather Riding Chaps": {
+      "name": "Leather Riding Chaps",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 70,
+      "minStr": "d4",
+      "armor": 1,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Shirt (Chain Mail)": {
+      "name": "Shirt (Chain Mail)",
+      "description": "<p>Chain, splint, metal scale, ring mail, samurai armor.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 25,
+      "price": 300,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Riot Shield": {
+      "name": "Riot Shield",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Modern shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 12 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "rd7qecvrb4": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Leggings (Chain Mail)": {
-            "name": "Leggings (Chain Mail)",
-            "description": "<article class=\"swade-core\"><p>Chain, splint, metal scale, ring mail, samurai armor.</p></article>",
-            "category": "Medieval & Ancient"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 80,
+      "parry": 3,
+      "minStr": "d4",
+      "cover": -4
+    },
+    "Bombproof suit": {
+      "name": "Bombproof suit",
+      "description": "<p>Bombproof suits aren&rsquo;t built for flexibility except in the hands, which are uncovered. @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01traits00000000]{Agility} and related skills that require more than manual dexterity cannot exceed d6 while wearing the suit, and @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03movement000000]{Pace} is reduced by 2 (in addition to @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor02gear00.JournalEntryPage.02minimumstren00]{Minimum Strength} penalties).</p>",
+      "notes": "Bombproof suits aren’t built for flexibility except in the hands, which are uncovered. Agility and related skills that require more than manual dexterity cannot exceed d6 while wearing the suit, and Pace is reduced by 2 (in addition to Minimum Strength penalties).",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 80,
+      "price": 25000,
+      "minStr": "d12",
+      "armor": 10,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": true,
+        "legs": true,
+        "torso": true
+      }
+    },
+    "Body Armor": {
+      "name": "Body Armor",
+      "description": "<p>Light, armored clothing made from complex polymers or advanced ballistic weave.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "notes": "Light, armored clothing made from complex polymers or advanced ballistic weave.",
+      "source": "SWADE Core Rules",
+      "category": "Futuristic",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 4,
+      "price": 200,
+      "minStr": "d4",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": true,
+        "torso": true
+      }
+    },
+    "Motorcycle Helmet": {
+      "name": "Motorcycle Helmet",
+      "source": "SWADE Core Rules",
+      "category": "Modern",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 3,
+      "price": 100,
+      "minStr": "d4",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": true,
+        "legs": false,
+        "torso": false
+      }
+    },
+    "Ballistic Shield": {
+      "name": "Ballistic Shield",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Modern shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 12 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "notes": "Reduces damage from firearms by 4 when an attacker tries to shoot through it.",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "fseghrgaoh": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Leggings (Cloth/Light Leather)": {
-            "name": "Leggings (Cloth/Light Leather)",
-            "description": "<article class=\"swade-core\"><p>Heavy winter clothing, supple leather armor, soft hides.</p></article>",
-            "category": "Medieval & Ancient"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 9,
+      "price": 250,
+      "parry": 3,
+      "minStr": "d4",
+      "cover": -4
+    },
+    "Corselet (Plate Mail)": {
+      "name": "Corselet (Plate Mail)",
+      "description": "<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 30,
+      "price": 500,
+      "minStr": "d10",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Polymer Shield, small": {
+      "name": "Polymer Shield, small",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Polymer shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +4 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "x5phucsl3w": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Cap (Cloth/Light Leather)": {
-            "name": "Cap (Cloth/Light Leather)",
-            "description": "<article class=\"swade-core\"><p>Heavy winter clothing, supple leather armor, soft hides.</p></article>",
-            "category": "Medieval & Ancient"
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 2,
+      "price": 200,
+      "parry": 1,
+      "minStr": "d4",
+      "cover": 0
+    },
+    "Body Armor w/Energy Skin": {
+      "name": "Body Armor w/Energy Skin",
+      "description": "<p>Light, armored clothing made from complex polymers or advanced ballistic weave.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02energyskin0000]{Energy Skin}:</strong> This armor is treated with an &ldquo;energy skin&rdquo; (or skein) to diffuse energy, reducing damage from lasers by 4. This costs 50% of the armor treated and is very shiny, subtracting 2 from @Compendium[swade-core-rules.swade-skills.Stealth]{Stealth} rolls based on vision.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</p>",
+      "notes": "Light, armored clothing made from complex polymers or advanced ballistic weave.",
+      "source": "SWADE Core Rules",
+      "category": "Futuristic",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 4,
+      "price": 300,
+      "minStr": "d4",
+      "armor": 4,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": true,
+        "torso": true
+      }
+    },
+    "Jacket (Cloth/Light Leather)": {
+      "name": "Jacket (Cloth/Light Leather)",
+      "description": "<p>Heavy winter clothing, supple leather armor, soft hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 5,
+      "price": 20,
+      "minStr": "d4",
+      "armor": 1,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": true,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Bronze Corselet": {
+      "name": "Bronze Corselet",
+      "description": "<p>Typically only found in ancient times or pre-iron civilizations.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 13,
+      "price": 80,
+      "minStr": "d8",
+      "armor": 3,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": false,
+        "torso": true
+      }
+    },
+    "Leggings (Thick Leather/Tough Hides)": {
+      "name": "Leggings (Thick Leather/Tough Hides)",
+      "description": "<p>Boiled leather, cuir bouilli, alligator hides.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Medieval & Ancient",
+      "actions": {
+        "trait": "",
+        "traitMod": "",
+        "dmgMod": "",
+        "additional": {}
+      },
+      "quantity": 1,
+      "weight": 7,
+      "price": 40,
+      "minStr": "d6",
+      "armor": 2,
+      "toughness": 0,
+      "isNaturalArmor": false,
+      "isHeavyArmor": false,
+      "locations": {
+        "arms": false,
+        "head": false,
+        "legs": true,
+        "torso": false
+      }
+    },
+    "Medium Shield": {
+      "name": "Medium Shield",
+      "description": "<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Medieval shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03coverandobst00]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>",
+      "source": "SWADE Core Rules",
+      "category": "Shields",
+      "actions": {
+        "additional": {
+          "4j0g2h3w5k": {
+            "name": "Bash",
+            "type": "damage",
+            "override": "@str+d4",
+            "uuid": null,
+            "macroActor": "default",
+            "isHeavyWeapon": false
+          }
         },
-        "Greaves (Bronze Armor)": {
-            "name": "Greaves (Bronze Armor)",
-            "description": "<article class=\"swade-core\"><p>Typically only found in ancient times or pre-iron civilizations.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Chain Hood or Helm": {
-            "name": "Chain Hood or Helm",
-            "description": "<article class=\"swade-core\"><p>Chain, splint, metal scale, ring mail, samurai armor.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Kevlar Vest with ceramic inserts": {
-            "name": "Kevlar Vest with ceramic inserts",
-            "description": "<article class=\"swade-core\"><p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@Compendium[swade-core-rules.swade-rules.Ballistic Protection]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p></article>",
-            "category": "Modern"
-        },
-        "Small Shield": {
-            "name": "Small Shield",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Medieval shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "97x0icqf0a": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        },
-        "Cap (Thick Leather/Tough Hides)": {
-            "name": "Cap (Thick Leather/Tough Hides)",
-            "description": "<article class=\"swade-core\"><p>Boiled leather, cuir bouilli, alligator hides.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Kevlar Vest": {
-            "name": "Kevlar Vest",
-            "description": "<article class=\"swade-core\">\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p>\n</article>",
-            "category": "Modern"
-        },
-        "Heavy Helm": {
-            "name": "Heavy Helm",
-            "description": "<article class=\"swade-core\"><p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Kevlar Riding Jeans": {
-            "name": "Kevlar Riding Jeans",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Battle Helmet w/ Energy Skin": {
-            "name": "Battle Helmet w/ Energy Skin",
-            "description": "<article class=\"swade-core\">\n<p>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} used by private or state armed forces.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02energyskin0000]{Energy Skin}:</strong> This armor is treated with an &ldquo;energy skin&rdquo; (or skein) to diffuse energy, reducing damage from lasers by 4. This costs 50% of the armor treated and is very shiny, subtracting 2 from @Compendium[swade-core-rules.swade-skills.Stealth]{Stealth} rolls based on vision.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p>\n</article>",
-            "category": "Futuristic"
-        },
-        "Bronze Helmet": {
-            "name": "Bronze Helmet",
-            "description": "<article class=\"swade-core\"><p>Typically only found in ancient times or pre-iron civilizations.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Polymer Shield, medium": {
-            "name": "Polymer Shield, medium",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Polymer shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +4 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "8x1g4vg5j4": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        },
-        "Large Shield": {
-            "name": "Large Shield",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Medieval shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "jnkpnzaoje": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        },
-        "Battle Helmet": {
-            "name": "Battle Helmet",
-            "description": "<article class=\"swade-core\"><p>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} used by private or state armed forces.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p></article>",
-            "category": "Futuristic"
-        },
-        "Kevlar Riding Jacket": {
-            "name": "Kevlar Riding Jacket",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Bike helmet": {
-            "name": "Bike helmet",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Vambraces (Plate Mail)": {
-            "name": "Vambraces (Plate Mail)",
-            "description": "<article class=\"swade-core\"><p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Greaves (Plate Mail)": {
-            "name": "Greaves (Plate Mail)",
-            "description": "<article class=\"swade-core\"><p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Jacket (Thick Leather/Tough Hides)": {
-            "name": "Jacket (Thick Leather/Tough Hides)",
-            "description": "<article class=\"swade-core\"><p>Boiled leather, cuir bouilli, alligator hides.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Infantry Battle Suit w/ Energy Skin": {
-            "name": "Infantry Battle Suit w/ Energy Skin",
-            "description": "<article class=\"swade-core\">\n<p>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} used by private or state armed forces.</p>\n<p>A full suit of armor with boots and gloves.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02energyskin0000]{Energy Skin}:</strong> This armor is treated with an &ldquo;energy skin&rdquo; (or skein) to diffuse energy, reducing damage from lasers by 4. This costs 50% of the armor treated and is very shiny, subtracting 2 from @Compendium[swade-core-rules.swade-skills.Stealth]{Stealth} rolls based on vision.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p>\n</article>",
-            "notes": "A full suit of armor with boots and gloves.",
-            "category": "Futuristic"
-        },
-        "Heavy Helm, Enclosed": {
-            "name": "Heavy Helm, Enclosed",
-            "description": "<article class=\"swade-core\">\n<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>\n<p>&ndash;1 to vision-based @Compendium[swade-core-rules.swade-skills.Notice]{Notice} rolls.</p>\n</article>",
-            "notes": "–1 to vision-based Notice rolls.",
-            "category": "Medieval & Ancient"
-        },
-        "Flak Jacket (Vietnam-era)": {
-            "name": "Flak Jacket (Vietnam-era)",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Thick Coat, Leather Jacket": {
-            "name": "Thick Coat, Leather Jacket",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Vambraces (Bronze Armor)": {
-            "name": "Vambraces (Bronze Armor)",
-            "description": "<article class=\"swade-core\"><p>Typically only found in ancient times or pre-iron civilizations.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Bronze Barding (horse)": {
-            "name": "Bronze Barding (horse)",
-            "description": "<article class=\"swade-core\"><p>Typically only found in ancient times or pre-iron civilizations.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Leather Riding Chaps": {
-            "name": "Leather Riding Chaps",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Shirt (Chain Mail)": {
-            "name": "Shirt (Chain Mail)",
-            "description": "<article class=\"swade-core\">\n<p>Chain, splint, metal scale, ring mail, samurai armor.</p>\n</article>",
-            "category": "Medieval & Ancient"
-        },
-        "Riot Shield": {
-            "name": "Riot Shield",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Modern shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 12 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "rd7qecvrb4": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        },
-        "Bombproof suit": {
-            "name": "Bombproof suit",
-            "description": "<article class=\"swade-core\">\n<p>Bombproof suits aren&rsquo;t built for flexibility except in the hands, which are uncovered. @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01traits00000000]{Agility} and related skills that require more than manual dexterity cannot exceed d6 while wearing the suit, and @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03movement000000]{Pace} is reduced by 2 (in addition to @Compendium[swade-core-rules.swade-rules.Minimum Strength]{Minimum Strength} penalties).</p>\n</article>",
-            "notes": "Bombproof suits aren’t built for flexibility except in the hands, which are uncovered. Agility and related skills that require more than manual dexterity cannot exceed d6 while wearing the suit, and Pace is reduced by 2 (in addition to Minimum Strength penalties).",
-            "category": "Modern"
-        },
-        "Body Armor": {
-            "name": "Body Armor",
-            "description": "<article class=\"swade-core\">\n<p>Light, armored clothing made from complex polymers or advanced ballistic weave.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p>\n</article>",
-            "notes": "Light, armored clothing made from complex polymers or advanced ballistic weave.",
-            "category": "Futuristic"
-        },
-        "Motorcycle Helmet": {
-            "name": "Motorcycle Helmet",
-            "description": "<article class=\"swade-core\"></article>",
-            "category": "Modern"
-        },
-        "Ballistic Shield": {
-            "name": "Ballistic Shield",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Modern shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 12 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "notes": "Reduces damage from firearms by 4 when an attacker tries to shoot through it.",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "fseghrgaoh": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        },
-        "Corselet (Plate Mail)": {
-            "name": "Corselet (Plate Mail)",
-            "description": "<article class=\"swade-core\">\n<p>Heavy steel armor made with &ldquo;plates&rdquo; of metal.</p>\n</article>",
-            "category": "Medieval & Ancient"
-        },
-        "Polymer Shield, small": {
-            "name": "Polymer Shield, small",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Polymer shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +4 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "x5phucsl3w": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        },
-        "Body Armor w/Energy Skin": {
-            "name": "Body Armor w/Energy Skin",
-            "description": "<article class=\"swade-core\">\n<p>Light, armored clothing made from complex polymers or advanced ballistic weave.</p>\n<p><strong>@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02energyskin0000]{Energy Skin}:</strong> This armor is treated with an &ldquo;energy skin&rdquo; (or skein) to diffuse energy, reducing damage from lasers by 4. This costs 50% of the armor treated and is very shiny, subtracting 2 from @Compendium[swade-core-rules.swade-skills.Stealth]{Stealth} rolls based on vision.</p>\n<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; background-color: #dfe6f5;\">@UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02ballisticpro00]{Ballistic Protection}:</strong><span style=\"color: #191813; background-color: #dfe6f5;\"> Reduces the damage from bullets by 4. &ldquo;Bullets&rdquo; includes physical shot fired from a firearm.</span></p>\n</article>",
-            "notes": "Light, armored clothing made from complex polymers or advanced ballistic weave.",
-            "category": "Futuristic"
-        },
-        "Jacket (Cloth/Light Leather)": {
-            "name": "Jacket (Cloth/Light Leather)",
-            "description": "<article class=\"swade-core\"><p>Heavy winter clothing, supple leather armor, soft hides.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Bronze Corselet": {
-            "name": "Bronze Corselet",
-            "description": "<article class=\"swade-core\"><p>Typically only found in ancient times or pre-iron civilizations.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Leggings (Thick Leather/Tough Hides)": {
-            "name": "Leggings (Thick Leather/Tough Hides)",
-            "description": "<article class=\"swade-core\"><p>Boiled leather, cuir bouilli, alligator hides.</p></article>",
-            "category": "Medieval & Ancient"
-        },
-        "Medium Shield": {
-            "name": "Medium Shield",
-            "description": "<article class=\"swade-core\">\n<p>Shields add to a character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01characters0000]{Parry} as shown in the Parry rating. @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Cover} subtracts from ranged attacks from the front and shielded side (attacks from the rear or unprotected side ignore cover).</p>\n<hr />\n<p>Medieval shields are @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03breakingthin00]{Hardness} 10 and provide +2 @UUID[Compendium.swade-core-rules.swade-rules.swadecor02gear00.JournalEntryPage.02armor000000000]{Armor} should someone attempt to shoot through them (see @Compendium[swade-core-rules.swade-rules.Cover and Obstacles]{Obstacles}).</p>\n<p>While worn, shields can be used to bash for Str+d4 damage.</p>\n</article>",
-            "actions": {
-                "skill": "Fighting",
-                "additional": {
-                    "4j0g2h3w5k": {
-                        "name": "Bash"
-                    }
-                }
-            },
-            "category": "Shields"
-        }
+        "dmgMod": "",
+        "trait": "Fighting",
+        "traitMod": ""
+      },
+      "quantity": 1,
+      "weight": 8,
+      "price": 100,
+      "parry": 2,
+      "minStr": "d6",
+      "cover": -2
     }
+  }
 }
