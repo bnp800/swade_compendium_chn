@@ -6,13 +6,13 @@
 
 ## Tasks
 
-- [ ] 1. 项目结构和基础设施搭建
-  - [ ] 1.1 创建 Python 项目结构和配置文件
+- [x] 1. 项目结构和基础设施搭建
+  - [x] 1.1 创建 Python 项目结构和配置文件
     - 创建 `automation/` 目录结构
     - 配置 `pyproject.toml` 或 `setup.py`
     - 配置 pytest 和 hypothesis
     - _Requirements: 6.1, 6.2_
-  - [ ] 1.2 设置测试框架和 CI 配置
+  - [x] 1.2 设置测试框架和 CI 配置
     - 创建 `.github/workflows/test.yml`
     - 配置测试覆盖率报告
     - _Requirements: 6.1, 6.2_
