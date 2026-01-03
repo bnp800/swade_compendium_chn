@@ -3,6 +3,12 @@
 
 本模组为 FVTT 的 SWADE 系统合集包提供了中文翻译。
 
+## 文档
+
+- [翻译工作流文档](./docs/translation-workflow.md) - 完整翻译流程说明
+- [Translation Generator 使用指南](./docs/translation-generator-guide.md) - 源文件导出指南
+- [本地开发环境配置指南](./docs/local-dev-guide.md) - 开发环境配置
+
 ## 安装
 - [x] 模组管理器中，粘贴清单文件地址： [https://raw.githubusercontent.com/fvtt-cn/swade_compendium_chn/main/module.json](https://raw.githubusercontent.com/fvtt-cn/swade_compendium_chn/main/module.json)
 - [x] 模组管理器中，搜索 `Translation: 中文 [SWADE（合集包）]`
