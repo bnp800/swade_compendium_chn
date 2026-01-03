@@ -71,19 +71,19 @@
 - [ ] 5. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
-- [ ] 6. Glossary Manager 组件实现
-  - [ ] 6.1 实现术语表加载和应用
+- [x] 6. Glossary Manager 组件实现
+  - [x] 6.1 实现术语表加载和应用
     - 加载 `glossary/swade-glossary.json`
     - 实现术语替换逻辑
     - _Requirements: 3.1_
-  - [ ] 6.2 编写术语应用一致性属性测试
+  - [x] 6.2 编写术语应用一致性属性测试
     - **Property 4: Glossary Application Consistency**
     - **Validates: Requirements 3.1, 3.4, 7.5**
-  - [ ] 6.3 实现未知术语检测
+  - [x] 6.3 实现未知术语检测
     - 检测文本中未在术语表中的专业术语
     - 生成建议添加的术语列表
     - _Requirements: 3.2_
-  - [ ] 6.4 实现术语表更新功能
+  - [x] 6.4 实现术语表更新功能
     - 支持添加新术语
     - 支持批量更新引用该术语的翻译
     - _Requirements: 3.3_
