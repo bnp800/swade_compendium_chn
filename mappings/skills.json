@@ -1,6 +1,6 @@
 {
     "mapping": {
         "description": "system.description",
-        "category": "system.category"
+        "attribute": "system.attribute"
     }
 }

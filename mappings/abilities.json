@@ -5,9 +5,6 @@
         "actions": {
             "path": "system.actions",
             "converter": "actions"
-        },
-        "range": "system.range",
-        "ammo": "system.ammo",
-        "category": "system.category"
+        }
     }
 }

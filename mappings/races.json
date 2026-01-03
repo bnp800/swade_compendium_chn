@@ -1,0 +1,9 @@
+{
+    "mapping": {
+        "description": "system.description",
+        "abilities": {
+            "path": "system.abilities",
+            "converter": "translateEmbeddedAbilities"
+        }
+    }
+}

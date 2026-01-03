@@ -1,0 +1,9 @@
+{
+    "mapping": {
+        "description": "description",
+        "results": {
+            "path": "results",
+            "converter": "nestedContent"
+        }
+    }
+}

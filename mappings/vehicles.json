@@ -1,0 +1,10 @@
+{
+    "mapping": {
+        "description": "system.description",
+        "notes": "system.notes",
+        "mods": {
+            "path": "system.mods",
+            "converter": "nestedContent"
+        }
+    }
+}

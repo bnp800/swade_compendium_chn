@@ -5,6 +5,10 @@
         "rank": "system.rank",
         "duration": "system.duration",
         "trapping": "system.trapping",
-        "pp": "system.pp"
+        "pp": "system.pp",
+        "modifiers": {
+            "path": "system.modifiers",
+            "converter": "nestedContent"
+        }
     }
 }

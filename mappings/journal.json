@@ -1,0 +1,9 @@
+{
+    "mapping": {
+        "name": "name",
+        "pages": {
+            "path": "pages",
+            "converter": "pages"
+        }
+    }
+}

@@ -1,9 +1,16 @@
 {
     "mapping": {
         "biography": "system.details.biography.value",
+        "appearance": "system.details.appearance",
+        "notes": "system.details.notes.value",
+        "goals": "system.details.goals.value",
         "items": {
             "path": "items",
-            "converter": "SWADE_ITEM_CONVERTERS"
+            "converter": "embeddedItems"
+        },
+        "effects": {
+            "path": "effects",
+            "converter": "nestedContent"
         }
     }
 }

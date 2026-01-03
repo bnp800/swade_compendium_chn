@@ -149,24 +149,24 @@
 - [ ] 11. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
-- [ ] 12. Babele Converter 优化
-  - [ ] 12.1 优化嵌入 Items 翻译复用
+- [x] 12. Babele Converter 优化
+  - [x] 12.1 优化嵌入 Items 翻译复用
     - 更新 `babele.js` 中的 converter 逻辑
     - 实现从已翻译 compendium 自动获取翻译
     - _Requirements: 4.1, 4.2_
-  - [ ] 12.2 实现嵌套内容递归翻译
+  - [x] 12.2 实现嵌套内容递归翻译
     - 处理多层嵌套的可翻译字段
     - _Requirements: 4.4_
-  - [ ] 12.3 编写嵌套内容翻译属性测试
+  - [x] 12.3 编写嵌套内容翻译属性测试
     - **Property 11: Nested Content Translation**
     - **Validates: Requirements 4.4**
-  - [ ] 12.4 实现 JournalEntry 多页面处理
+  - [x] 12.4 实现 JournalEntry 多页面处理
     - 正确处理多页面结构
     - _Requirements: 4.5_
-  - [ ] 12.5 编写多页面日志翻译属性测试
+  - [x] 12.5 编写多页面日志翻译属性测试
     - **Property 12: Multi-Page Journal Translation**
     - **Validates: Requirements 4.5**
-  - [ ] 12.6 更新字段映射配置
+  - [x] 12.6 更新字段映射配置
     - 更新 `mappings/` 目录下的配置文件
     - _Requirements: 4.3_
 
