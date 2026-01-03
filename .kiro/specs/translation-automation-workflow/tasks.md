@@ -133,15 +133,15 @@
     - 包含总体进度和各 compendium 详情
     - _Requirements: 5.4_
 
-- [ ] 10. Incremental Update 组件实现
-  - [ ] 10.1 实现增量更新逻辑
+- [x] 10. Incremental Update 组件实现
+  - [x] 10.1 实现增量更新逻辑
     - 保留未变更条目的现有翻译
     - 只处理新增和修改的条目
     - _Requirements: 8.2, 8.4_
-  - [ ] 10.2 编写增量更新保留属性测试
+  - [x] 10.2 编写增量更新保留属性测试
     - **Property 5: Incremental Update Preservation**
     - **Validates: Requirements 8.2**
-  - [ ] 10.3 实现智能合并功能
+  - [x] 10.3 实现智能合并功能
     - 合并新旧翻译内容
     - 处理冲突情况
     - _Requirements: 8.5_
