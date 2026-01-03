@@ -17,29 +17,29 @@
     - 配置测试覆盖率报告
     - _Requirements: 6.1, 6.2_
 
-- [ ] 2. Change Detector 组件实现
-  - [ ] 2.1 实现 JSON 文件比较核心逻辑
+- [x] 2. Change Detector 组件实现
+  - [x] 2.1 实现 JSON 文件比较核心逻辑
     - 实现 `ChangeDetector.compare_files()` 方法
     - 实现条目级别的差异检测
     - 支持内容哈希比较
     - _Requirements: 1.2, 8.1_
-  - [ ] 2.2 编写 Change Detector 属性测试
+  - [x] 2.2 编写 Change Detector 属性测试
     - **Property 1: Change Detection Accuracy**
     - **Validates: Requirements 1.2, 8.1**
-  - [ ] 2.3 实现变更报告生成
+  - [x] 2.3 实现变更报告生成
     - 实现 `ChangeDetector.generate_changelog()` 方法
     - 生成 Markdown 格式的变更日志
     - _Requirements: 1.3_
-  - [ ] 2.4 实现占位文件创建
+  - [x] 2.4 实现占位文件创建
     - 当 zh_Hans 目录缺少对应文件时自动创建
     - _Requirements: 1.4_
-  - [ ] 2.5 编写占位文件创建属性测试
+  - [x] 2.5 编写占位文件创建属性测试
     - **Property 14: Placeholder File Creation**
     - **Validates: Requirements 1.4**
-  - [ ] 2.6 实现删除条目标记
+  - [x] 2.6 实现删除条目标记
     - 标记删除的条目为 "deprecated" 而非直接删除
     - _Requirements: 1.5_
-  - [ ] 2.7 编写删除条目处理属性测试
+  - [x] 2.7 编写删除条目处理属性测试
     - **Property 15: Deleted Entry Handling**
     - **Validates: Requirements 1.5**
 
