@@ -6,6 +6,8 @@
 ## 文档
 
 - [翻译工作流文档](./docs/translation-workflow.md) - 完整翻译流程说明
+- [Weblate 使用指南](./docs/weblate-guide.md) - Weblate 平台详细操作指南
+- [自动化工具使用指南](./docs/automation-tools-guide.md) - automation 目录工具详解
 - [Translation Generator 使用指南](./docs/translation-generator-guide.md) - 源文件导出指南
 - [本地开发环境配置指南](./docs/local-dev-guide.md) - 开发环境配置
 

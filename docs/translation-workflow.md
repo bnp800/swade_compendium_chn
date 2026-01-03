@@ -146,6 +146,8 @@ Weblate 是本项目的主要翻译平台。
 
 **访问地址**：http://150.109.5.239/engage/swade/
 
+**详细操作指南**：请参考 [Weblate 使用指南](./weblate-guide.md)
+
 **工作流程**：
 
 1. 注册/登录 Weblate 账号
@@ -372,6 +374,8 @@ GitHub Actions 会自动：
 | Progress Tracker | `automation/progress_tracker/` | 进度追踪 |
 | JSON Validator | `automation/json_validator/` | JSON 验证 |
 
+**详细使用说明**：请参考 [自动化工具使用指南](./automation-tools-guide.md)
+
 ### CLI 命令参考
 
 ```bash
@@ -491,6 +495,8 @@ done
 
 ## 相关文档
 
+- [Weblate 使用指南](./weblate-guide.md)
+- [自动化工具使用指南](./automation-tools-guide.md)
 - [Translation Generator 使用指南](./translation-generator-guide.md)
 - [本地开发环境配置指南](./local-dev-guide.md)
 - [自动化工具 README](../automation/README.md)

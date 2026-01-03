@@ -7,6 +7,8 @@
 | 文档 | 说明 | 适用人群 |
 |------|------|----------|
 | [翻译工作流文档](./translation-workflow.md) | 完整翻译流程说明 | 所有贡献者 |
+| [Weblate 使用指南](./weblate-guide.md) | Weblate 平台详细操作 | 翻译者 |
+| [自动化工具使用指南](./automation-tools-guide.md) | automation 目录工具详解 | 开发者、协调者 |
 | [Translation Generator 使用指南](./translation-generator-guide.md) | 源文件导出指南 | 翻译协调者 |
 | [本地开发环境配置指南](./local-dev-guide.md) | 开发环境配置 | 开发者 |
 
@@ -16,7 +18,14 @@
 
 1. 访问 [Weblate 翻译平台](http://150.109.5.239/engage/swade/)
 2. 注册账号并开始翻译
-3. 详细流程请参考 [翻译工作流文档](./translation-workflow.md)
+3. 详细操作请参考 [Weblate 使用指南](./weblate-guide.md)
+4. 完整流程请参考 [翻译工作流文档](./translation-workflow.md)
+
+### 我想使用自动化工具
+
+1. 安装 Python 环境和依赖
+2. 了解各种工具的功能和用法
+3. 详细说明请参考 [自动化工具使用指南](./automation-tools-guide.md)
 
 ### 我想导出新的源文件
 
