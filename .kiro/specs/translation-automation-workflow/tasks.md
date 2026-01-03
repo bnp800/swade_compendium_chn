@@ -114,21 +114,21 @@
 - [ ] 8. Checkpoint - 确保所有测试通过
   - 确保所有测试通过，如有问题请询问用户
 
-- [ ] 9. Progress Tracker 组件实现
-  - [ ] 9.1 实现进度计算逻辑
+- [x] 9. Progress Tracker 组件实现
+  - [x] 9.1 实现进度计算逻辑
     - 计算每个 compendium 的翻译完成率
     - 区分已翻译、未翻译、需更新条目
     - _Requirements: 5.1, 5.2_
-  - [ ] 9.2 编写进度计算准确性属性测试
+  - [x] 9.2 编写进度计算准确性属性测试
     - **Property 7: Progress Calculation Accuracy**
     - **Validates: Requirements 5.1, 5.2**
-  - [ ] 9.3 实现变更标记功能
+  - [x] 9.3 实现变更标记功能
     - 标记源文件变更后需要审核的条目
     - _Requirements: 5.3, 8.3_
-  - [ ] 9.4 编写变更标记准确性属性测试
+  - [x] 9.4 编写变更标记准确性属性测试
     - **Property 6: Change Marking Accuracy**
     - **Validates: Requirements 5.3, 8.3**
-  - [ ] 9.5 实现进度仪表板生成
+  - [x] 9.5 实现进度仪表板生成
     - 生成 Markdown 格式的进度报告
     - 包含总体进度和各 compendium 详情
     - _Requirements: 5.4_
