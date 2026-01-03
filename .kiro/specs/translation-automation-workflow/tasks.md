@@ -170,15 +170,15 @@
     - 更新 `mappings/` 目录下的配置文件
     - _Requirements: 4.3_
 
-- [ ] 13. 多模块支持实现
-  - [ ] 13.1 实现模块结构自动创建
+- [x] 13. 多模块支持实现
+  - [x] 13.1 实现模块结构自动创建
     - 为新模块自动创建翻译文件结构
     - _Requirements: 9.4_
-  - [ ] 13.2 实现跨模块翻译复用
+  - [x] 13.2 实现跨模块翻译复用
     - 检测共享内容
     - 复用已有翻译
     - _Requirements: 9.5_
-  - [ ] 13.3 编写跨模块翻译复用属性测试
+  - [x] 13.3 编写跨模块翻译复用属性测试
     - **Property 13: Translation Reuse Across Modules**
     - **Validates: Requirements 9.5**
 

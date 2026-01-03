@@ -7,6 +7,7 @@ SWADE 中文翻译自动化工作流
 - 术语管理 (Glossary Manager)
 - 质量检查 (Quality Checker)
 - 进度追踪 (Progress Tracker)
+- 多模块支持 (Multi Module Manager)
 """
 
 __version__ = "0.1.0"
