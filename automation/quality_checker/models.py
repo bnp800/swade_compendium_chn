@@ -174,3 +174,34 @@ class QualityReport:
             lines.append("")
         
         return "\n".join(lines)
+    
+    @classmethod
+    def combine_reports(cls, reports: List['QualityReport']) -> 'QualityReport':
+        """合并多个报告
+        
+        Args:
+            reports: 报告列表
+            
+        Returns:
+            QualityReport: 合并后的报告
+        """
+        if not reports:
+            return cls("combined", [])
+        
+        combined_issues = []
+        file_names = []
+        
+        for report in reports:
+            file_names.append(report.file_name)
+            # 为每个问题添加文件名前缀
+            for issue in report.issues:
+                combined_issue = Issue(
+                    severity=issue.severity,
+                    type=issue.type,
+                    message=issue.message,
+                    location=f"{report.file_name}:{issue.location}"
+                )
+                combined_issues.append(combined_issue)
+        
+        combined_name = f"combined ({len(reports)} files)"
+        return cls(combined_name, combined_issues)
