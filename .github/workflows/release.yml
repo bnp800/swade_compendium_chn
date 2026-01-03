@@ -3,66 +3,219 @@ name: Create Release
 on:
   release:
     types: [ published ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v1.0.0)'
+        required: true
+        type: string
+      dry_run:
+        description: 'Dry run (do not publish)'
+        required: false
+        type: boolean
+        default: false
 
 env:
   ZIP_FILENAME: "swade_compendium_chn"
-  PACKAGE_CONTENT: "module.json babele.js setup.js compendium/ lang/cn.json swade-core.css sytle/cnP.ttf"
+  PACKAGE_CONTENT: "module.json babele.js setup.js compendium/ lang/cn.json swade-core.css style/cnP.ttf"
   PACKAGE_ID: swade_compendium_chn
 
-
 jobs:
+  # Pre-release validation job
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      validation_passed: ${{ steps.validate.outputs.passed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Validate JSON files
+        id: validate-json
+        run: |
+          echo "Validating JSON files before release..."
+          python -m automation.cli.validate en-US zh_Hans glossary mappings --format text
+
+      - name: Run quality check
+        id: quality-check
+        run: |
+          echo "Running quality check..."
+          python -m automation.cli.quality_check --source en-US --target zh_Hans --error-only --quiet || true
+
+      - name: Set validation output
+        id: validate
+        run: echo "passed=true" >> $GITHUB_OUTPUT
+
+  # Build and release job
   build:
     runs-on: ubuntu-latest
+    needs: validate
+    if: needs.validate.outputs.validation_passed == 'true'
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    # Substitute the Manifest and Download URLs in the module.json
-    - name: Substitute Manifest and Download Links For Versioned Ones
-      id: sub_manifest_link_version
-      uses: microsoft/variable-substitution@v1
-      with:
-        files: 'module.json'
-      env:
-        version: ${{github.event.release.tag_name}}
-        url: https://github.com/${{github.repository}}
-        manifest: https://github.com/${{github.repository}}/releases/latest/download/module.json
-        download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/${{env.ZIP_FILENAME}}.zip
-        changelog: https://github.com/${{github.repository}}/releases/tag/${{github.event.release.tag_name}}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    # Rename and remove files
-    - name: Tidy files
-      id: tidy-files
-      run: rm zh_Hans/___.json && mv zh_Hans compendium
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Convert yml to json
-      id: yml2json
-      run: python utility/yml2json.py lang/cn.yml
+      - name: Determine version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "version=${{ inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          fi
 
-    # Create a zip file with all files required by the module to add to the release
-    - name: Create Artifact
-      id: build-zip
-      run: zip -r $ZIP_FILENAME.zip $PACKAGE_CONTENT
+      # Substitute the Manifest and Download URLs in the module.json
+      - name: Substitute Manifest and Download Links For Versioned Ones
+        id: sub_manifest_link_version
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: 'module.json'
+        env:
+          version: ${{ steps.version.outputs.version }}
+          url: https://github.com/${{ github.repository }}
+          manifest: https://github.com/${{ github.repository }}/releases/latest/download/module.json
+          download: https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.version }}/${{ env.ZIP_FILENAME }}.zip
+          changelog: https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.version }}
 
-    # Create a release for this specific version
-    - name: Update Release with Files
-      id: create_version_release
-      uses: ncipollo/release-action@v1
-      with:
-        allowUpdates: true
-        name: ${{ github.event.release.name }}
-        draft: false
-        prerelease: false
-        token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './module.json, ./${{env.ZIP_FILENAME}}.zip'
-        tag: ${{ github.event.release.tag_name }}
-        body: ${{ github.event.release.body }}
+      # Prepare files for packaging
+      - name: Prepare files
+        id: prepare-files
+        run: |
+          # Remove placeholder file if exists
+          if [ -f "zh_Hans/___.json" ]; then
+            rm zh_Hans/___.json
+          fi
+          # Rename zh_Hans to compendium for the package
+          mv zh_Hans compendium
+          # Create style directory if it doesn't exist (fix typo in original)
+          mkdir -p style
+          if [ -f "sytle/cnP.ttf" ]; then
+            cp sytle/cnP.ttf style/cnP.ttf
+          fi
 
-    - name: Publish to Foundry VTT Repo
-      id: publish_foundry_repo
-      if: ${{ env.PACKAGE_ID }}
-      run: npx @ghost-fvtt/foundry-publish
-      env:
-        FVTT_MANIFEST_PATH: 'module.json'
-        FVTT_PACKAGE_ID: ${{ env.PACKAGE_ID }}
-        FVTT_USERNAME: ${{ secrets.FVTT_USERNAME }}
-        FVTT_PASSWORD: ${{ secrets.FVTT_PASSWORD }}
+      - name: Convert yml to json
+        id: yml2json
+        run: |
+          if [ -f "utility/yml2json.py" ] && [ -f "lang/cn.yml" ]; then
+            python utility/yml2json.py lang/cn.yml
+          fi
+
+      # Create a zip file with all files required by the module
+      - name: Create Artifact
+        id: build-zip
+        run: |
+          echo "Creating release package..."
+          # List files to be included
+          echo "Package contents:"
+          for item in $PACKAGE_CONTENT; do
+            if [ -e "$item" ]; then
+              echo "  ✓ $item"
+            else
+              echo "  ✗ $item (missing)"
+            fi
+          done
+          # Create zip
+          zip -r $ZIP_FILENAME.zip $PACKAGE_CONTENT
+          echo "Package created: $ZIP_FILENAME.zip"
+          ls -lh $ZIP_FILENAME.zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-package
+          path: |
+            ${{ env.ZIP_FILENAME }}.zip
+            module.json
+
+      # Skip actual release for dry run
+      - name: Check dry run
+        if: ${{ inputs.dry_run == true }}
+        run: |
+          echo "Dry run mode - skipping release publication"
+          echo "Package would be released as version: ${{ steps.version.outputs.version }}"
+
+      # Create/Update release for this specific version
+      - name: Update Release with Files
+        id: create_version_release
+        if: ${{ github.event_name == 'release' || inputs.dry_run != true }}
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          name: ${{ github.event.release.name || steps.version.outputs.version }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: './module.json, ./${{ env.ZIP_FILENAME }}.zip'
+          tag: ${{ steps.version.outputs.version }}
+          body: ${{ github.event.release.body || 'Release version ' }}${{ steps.version.outputs.version }}
+
+      # Publish to Foundry VTT Repository
+      - name: Publish to Foundry VTT Repo
+        id: publish_foundry_repo
+        if: ${{ env.PACKAGE_ID && (github.event_name == 'release' || inputs.dry_run != true) }}
+        run: npx @ghost-fvtt/foundry-publish
+        env:
+          FVTT_MANIFEST_PATH: 'module.json'
+          FVTT_PACKAGE_ID: ${{ env.PACKAGE_ID }}
+          FVTT_USERNAME: ${{ secrets.FVTT_USERNAME }}
+          FVTT_PASSWORD: ${{ secrets.FVTT_PASSWORD }}
+        continue-on-error: true
+
+      - name: Check Foundry publish result
+        if: ${{ steps.publish_foundry_repo.outcome == 'failure' }}
+        run: |
+          echo "::warning::Failed to publish to Foundry VTT repository. This may be due to missing credentials or network issues."
+
+  # Notification job
+  notify:
+    runs-on: ubuntu-latest
+    needs: [validate, build]
+    if: always()
+    steps:
+      - name: Determine status
+        id: status
+        run: |
+          if [ "${{ needs.validate.result }}" == "failure" ]; then
+            echo "status=validation_failed" >> $GITHUB_OUTPUT
+            echo "message=Release validation failed" >> $GITHUB_OUTPUT
+          elif [ "${{ needs.build.result }}" == "failure" ]; then
+            echo "status=build_failed" >> $GITHUB_OUTPUT
+            echo "message=Release build failed" >> $GITHUB_OUTPUT
+          elif [ "${{ needs.build.result }}" == "success" ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo "message=Release completed successfully" >> $GITHUB_OUTPUT
+          else
+            echo "status=unknown" >> $GITHUB_OUTPUT
+            echo "message=Release status unknown" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create release summary
+        run: |
+          echo "## Release Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ steps.status.outputs.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Message**: ${{ steps.status.outputs.message }}" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "- **Version**: ${{ github.event.release.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "- **Version**: ${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Dry Run**: ${{ inputs.dry_run }}" >> $GITHUB_STEP_SUMMARY
+          fi

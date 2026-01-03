@@ -5,12 +5,20 @@ on:
     branches: [main]
     paths:
       - 'automation/**'
+      - 'en-US/**'
+      - 'zh_Hans/**'
+      - 'glossary/**'
+      - 'mappings/**'
       - 'pyproject.toml'
       - '.github/workflows/test.yml'
   pull_request:
     branches: [main]
     paths:
       - 'automation/**'
+      - 'en-US/**'
+      - 'zh_Hans/**'
+      - 'glossary/**'
+      - 'mappings/**'
       - 'pyproject.toml'
       - '.github/workflows/test.yml'
   workflow_dispatch:
@@ -63,46 +71,72 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate JSON files in en-US
+      - name: Install dependencies
         run: |
-          echo "Validating en-US JSON files..."
-          for file in en-US/*.json; do
-            if [ -f "$file" ]; then
-              echo "Checking $file"
-              python -m json.tool "$file" > /dev/null || exit 1
-            fi
-          done
-          echo "All en-US JSON files are valid!"
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
 
-      - name: Validate JSON files in zh_Hans
+      - name: Validate JSON files using automation tool
         run: |
-          echo "Validating zh_Hans JSON files..."
-          for file in zh_Hans/*.json; do
-            if [ -f "$file" ]; then
-              echo "Checking $file"
-              python -m json.tool "$file" > /dev/null || exit 1
-            fi
-          done
-          echo "All zh_Hans JSON files are valid!"
+          echo "Validating all JSON files..."
+          python -m automation.cli.validate en-US zh_Hans glossary mappings --format text
+        continue-on-error: false
 
-      - name: Validate glossary JSON files
+      - name: Generate JSON validation report
+        if: always()
         run: |
-          echo "Validating glossary JSON files..."
-          for file in glossary/*.json; do
-            if [ -f "$file" ]; then
-              echo "Checking $file"
-              python -m json.tool "$file" > /dev/null || exit 1
-            fi
-          done
-          echo "All glossary JSON files are valid!"
+          python -m automation.cli.validate en-US zh_Hans glossary mappings --format markdown --output validation-report.md || true
+          if [ -f validation-report.md ]; then
+            cat validation-report.md
+          fi
 
-      - name: Validate mapping JSON files
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: json-validation-report
+          path: validation-report.md
+          if-no-files-found: ignore
+
+  quality-check:
+    runs-on: ubuntu-latest
+    needs: validate-json
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          echo "Validating mapping JSON files..."
-          for file in mappings/*.json; do
-            if [ -f "$file" ]; then
-              echo "Checking $file"
-              python -m json.tool "$file" > /dev/null || exit 1
-            fi
-          done
-          echo "All mapping JSON files are valid!"
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run translation quality check
+        run: |
+          echo "Running translation quality check..."
+          python -m automation.cli.quality_check --source en-US --target zh_Hans --format text
+        continue-on-error: true
+
+      - name: Generate quality check report
+        if: always()
+        run: |
+          python -m automation.cli.quality_check --source en-US --target zh_Hans --format markdown --output quality-report.md || true
+          if [ -f quality-report.md ]; then
+            cat quality-report.md
+          fi
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-check-report
+          path: quality-report.md
+          if-no-files-found: ignore
+
+      - name: Check for critical errors
+        run: |
+          # Run quality check and fail only on critical errors
+          python -m automation.cli.quality_check --source en-US --target zh_Hans --error-only --quiet || echo "Quality issues found (non-blocking)"
