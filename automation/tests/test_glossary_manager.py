@@ -116,6 +116,59 @@ class TestGlossaryManagerBasic:
         assert replacements.get("Strength", 0) == 1
 
 
+class TestLinkDisplayTranslation:
+    """链接显示文本翻译查找测试 (Task 6.5)"""
+
+    def test_exact_match(self, glossary_manager):
+        """精确匹配：术语大小写完全一致"""
+        assert glossary_manager.get_link_display_translation("Vigor") == "活力"
+        assert glossary_manager.get_link_display_translation("Smarts") == "聪慧"
+
+    def test_case_insensitive_match(self, glossary_manager):
+        """忽略大小写匹配"""
+        assert glossary_manager.get_link_display_translation("vigor") == "活力"
+        assert glossary_manager.get_link_display_translation("VIGOR") == "活力"
+        assert glossary_manager.get_link_display_translation("sMaRtS") == "聪慧"
+
+    def test_exact_match_takes_priority(self, tmp_path):
+        """精确匹配优先于忽略大小写匹配"""
+        glossary_data = {"Test": "精确", "test": "小写"}
+        filepath = tmp_path / "glossary.json"
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(glossary_data, f, ensure_ascii=False)
+        gm = GlossaryManager(str(filepath))
+        # "Test" should hit exact match first
+        assert gm.get_link_display_translation("Test") == "精确"
+        assert gm.get_link_display_translation("test") == "小写"
+
+    def test_not_found_returns_none(self, glossary_manager):
+        """术语不存在时返回 None"""
+        assert glossary_manager.get_link_display_translation("NonExistentTerm") is None
+        assert glossary_manager.get_link_display_translation("Fireball") is None
+
+    def test_empty_input_returns_none(self, glossary_manager):
+        """空输入返回 None"""
+        assert glossary_manager.get_link_display_translation("") is None
+        assert glossary_manager.get_link_display_translation(None) is None
+
+    def test_multi_word_term(self, glossary_manager):
+        """多词术语匹配"""
+        assert glossary_manager.get_link_display_translation("Wild Card") == "不羁角色"
+        assert glossary_manager.get_link_display_translation("Arcane Background") == "奥法背景"
+        assert glossary_manager.get_link_display_translation("wild card") == "不羁角色"
+
+    def test_with_real_glossary(self, real_glossary_manager):
+        """使用真实术语表测试常见 SWADE 术语"""
+        if real_glossary_manager is None:
+            pytest.skip("Real glossary file not found")
+        gm = real_glossary_manager
+        # These are common SWADE terms that should be in the glossary
+        result = gm.get_link_display_translation("Agility")
+        assert result is not None
+        result = gm.get_link_display_translation("agility")
+        assert result is not None
+
+
 class TestGlossaryManagerUpdate:
     """术语表更新测试"""
     

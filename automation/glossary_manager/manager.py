@@ -68,6 +68,39 @@ class GlossaryManager:
             Optional[str]: 中文翻译，如果不存在则返回 None
         """
         return self.glossary.get(term)
+
+    def get_link_display_translation(self, english_display: str) -> Optional[str]:
+        """获取链接显示文本的中文翻译
+
+        用于 Link Post-Processor 替换链接中的显示文本。
+        查找顺序：精确匹配 → 忽略大小写匹配 → 返回 None
+
+        Args:
+            english_display: 英文显示文本
+
+        Returns:
+            Optional[str]: 中文翻译，如果不存在则返回 None
+
+        Examples:
+            "Smarts" → "聪慧"
+            "Fighting" → "格斗"
+            "attributes" → "属性"（忽略大小写匹配）
+        """
+        if not english_display:
+            return None
+
+        # 1. 精确匹配
+        if english_display in self.glossary:
+            return self.glossary[english_display]
+
+        # 2. 忽略大小写匹配
+        display_lower = english_display.lower()
+        for term, translation in self.glossary.items():
+            if term.lower() == display_lower:
+                return translation
+
+        return None
+
     
     def apply_glossary(self, text: str) -> str:
         """应用术语表到文本

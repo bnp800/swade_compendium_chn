@@ -86,11 +86,11 @@
     - 支持添加新术语
     - 支持批量更新引用该术语的翻译
     - _Requirements: 5.3_
-  - [ ] 6.5 实现链接显示文本翻译查找
+  - [x] 6.5 实现链接显示文本翻译查找
     - 实现 `get_link_display_translation()` 方法
     - 支持精确匹配和忽略大小写匹配
     - _Requirements: 5.5, 3.2_
-  - [ ] 6.6 实现 Compendium 名称翻译查找
+  - [-] 6.6 实现 Compendium 名称翻译查找
     - 实现 `get_compendium_name_translation()` 方法
     - 用于替换 @Compendium ref 路径中的条目名称
     - _Requirements: 5.6, 3.3_
