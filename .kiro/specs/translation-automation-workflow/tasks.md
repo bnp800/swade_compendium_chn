@@ -45,25 +45,25 @@
 
 - [x] 3. Checkpoint - 确保所有测试通过
 
-- [-] 4. Format Converter 组件重构（CSV 优先 + 链接剥离）
-  - [ ] 4.1 重构 HTML 文本提取器（链接剥离模式）
+- [x] 4. Format Converter 组件重构（CSV 优先 + 链接剥离）
+  - [x] 4.1 重构 HTML 文本提取器（链接剥离模式）
     - 重构 `FormatConverter` 提取逻辑：完全剥离 @UUID 和 @Compendium 链接
     - 链接显示文本保留为上下文信息，不作为翻译内容
     - 剥离 HTML 标签，输出纯文本
     - _Requirements: 2.1, 2.2, 2.3_
-  - [ ] 4.2 重构翻译注入器（保留原始链接）
+  - [x] 4.2 重构翻译注入器（保留原始链接）
     - 注入翻译文本到 HTML 结构时保留原始英文链接不变
     - 输出半成品 JSON，链接待 Link Post-Processor 后处理
     - _Requirements: 3.1_
-  - [ ] 4.3 重构格式转换往返属性测试
+  - [x] 4.3 重构格式转换往返属性测试
     - **Property 2: Format Conversion Round-Trip**（验证链接在注入后保留在原始位置）
     - **Validates: Requirements 2.3, 3.1**
-  - [ ] 4.4 重构 CSV 输出格式
+  - [x] 4.4 重构 CSV 输出格式
     - CSV 列：key, field, source_text, translated_text, context
     - context 列包含链接相关术语提示
     - 确保 Excel/WPS 兼容（UTF-8 BOM）
     - _Requirements: 2.4, 2.5, 2.6_
-  - [ ] 4.5 移除 PO 格式支持，简化为 CSV + JSON
+  - [x] 4.5 移除 PO 格式支持，简化为 CSV + JSON
     - CSV 为主要格式（手动编辑和 Weblate 导入）
     - JSON 为辅助格式
     - _Requirements: 2.7_
