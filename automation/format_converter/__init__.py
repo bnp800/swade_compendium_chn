@@ -1,10 +1,9 @@
-"""格式转换模块 - 处理 Babele JSON 与 Weblate 友好格式之间的转换
+"""格式转换模块 - 处理 Babele JSON 与翻译者友好格式之间的转换
 
-支持的功能:
-- HTML 文本提取，保留结构信息
-- UUID/Compendium 链接占位符处理
-- 多格式输出 (PO, CSV, JSON)
-- 翻译注入，保持 HTML 结构完整
+核心流程（CSV 优先 + 链接剥离）:
+- HTML 文本提取，完全剥离链接和 HTML 标签
+- CSV 为主要输出格式（UTF-8 BOM），JSON 为辅助格式
+- 翻译注入，保持 HTML 结构完整，保留原始链接
 """
 
 from .converter import (
@@ -12,6 +11,8 @@ from .converter import (
     ExtractedEntry,
     HTMLTextExtractor,
     LinkPlaceholderManager,
+    LinkInfo,
+    extract_for_translation,
     extract_for_weblate,
     inject_translations,
 )
@@ -21,6 +22,8 @@ __all__ = [
     "ExtractedEntry",
     "HTMLTextExtractor",
     "LinkPlaceholderManager",
+    "LinkInfo",
+    "extract_for_translation",
     "extract_for_weblate",
     "inject_translations",
 ]

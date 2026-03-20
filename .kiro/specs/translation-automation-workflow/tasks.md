@@ -45,7 +45,7 @@
 
 - [x] 3. Checkpoint - 确保所有测试通过
 
-- [ ] 4. Format Converter 组件重构（CSV 优先 + 链接剥离）
+- [-] 4. Format Converter 组件重构（CSV 优先 + 链接剥离）
   - [ ] 4.1 重构 HTML 文本提取器（链接剥离模式）
     - 重构 `FormatConverter` 提取逻辑：完全剥离 @UUID 和 @Compendium 链接
     - 链接显示文本保留为上下文信息，不作为翻译内容
