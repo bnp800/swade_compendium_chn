@@ -10,55 +10,79 @@
 2. **格式分离**: 翻译者处理纯文本，系统处理 HTML 结构
 3. **术语一致**: 通过 Glossary 确保专业术语统一
 4. **复用最大化**: 利用 Babele Converter 减少重复翻译
+5. **链接后处理**: 超链接在翻译完成后统一替换，翻译者无需关心链接语法
+6. **CSV 优先**: 输出给翻译者的格式以 CSV 为主，便于手动编辑和批量处理
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           Translation Workflow                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                   │
-│  │   FoundryVTT │    │  Translation │    │   Weblate    │                   │
-│  │    + SWADE   │───▶│  Generator   │───▶│   Platform   │                   │
-│  │   + Babele   │    │   Module     │    │              │                   │
-│  └──────────────┘    └──────────────┘    └──────────────┘                   │
-│         │                   │                   │                            │
-│         │                   ▼                   ▼                            │
-│         │           ┌──────────────┐    ┌──────────────┐                    │
-│         │           │   en-US/     │    │  Translated  │                    │
-│         │           │  (Source)    │    │    Text      │                    │
-│         │           └──────────────┘    └──────────────┘                    │
-│         │                   │                   │                            │
-│         │                   ▼                   ▼                            │
-│         │           ┌─────────────────────────────────┐                     │
-│         │           │      Automation Pipeline        │                     │
-│         │           │  ┌───────────┐ ┌───────────┐   │                     │
-│         │           │  │  Change   │ │  Format   │   │                     │
-│         │           │  │ Detector  │ │ Converter │   │                     │
-│         │           │  └───────────┘ └───────────┘   │                     │
-│         │           │  ┌───────────┐ ┌───────────┐   │                     │
-│         │           │  │ Glossary  │ │  Quality  │   │                     │
-│         │           │  │  Manager  │ │  Checker  │   │                     │
-│         │           │  └───────────┘ └───────────┘   │                     │
-│         │           └─────────────────────────────────┘                     │
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                           Translation Workflow                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                    │
+│  │   FoundryVTT │    │  Translation │    │   Weblate /  │                    │
+│  │    + SWADE   │───▶│  Generator   │───▶│  手动编辑CSV │                    │
+│  │   + Babele   │    │   Module     │    │              │                    │
+│  └──────────────┘    └──────────────┘    └──────────────┘                    │
+│         │                   │                   │                             │
+│         │                   ▼                   ▼                             │
+│         │           ┌──────────────┐    ┌──────────────┐                     │
+│         │           │   en-US/     │    │  Translated  │                     │
+│         │           │  (Source)    │    │  CSV (纯文本) │                     │
+│         │           └──────────────┘    └──────────────┘                     │
+│         │                   │                   │                             │
+│         │                   ▼                   ▼                             │
+│         │           ┌──────────────────────────────────────────┐             │
+│         │           │         Automation Pipeline              │             │
+│         │           │  ┌───────────┐ ┌────────────────────┐   │             │
+│         │           │  │  Change   │ │  Format Converter  │   │             │
+│         │           │  │ Detector  │ │  (剥离链接→纯文本) │   │             │
+│         │           │  └───────────┘ └────────────────────┘   │             │
+│         │           │  ┌───────────┐ ┌────────────────────┐   │             │
+│         │           │  │ Glossary  │ │ Link Post-Processor│   │             │
+│         │           │  │  Manager  │ │ (链接统一后处理)   │   │             │
+│         │           │  └───────────┘ └────────────────────┘   │             │
+│         │           │  ┌───────────┐                          │             │
+│         │           │  │  Quality  │                          │             │
+│         │           │  │  Checker  │                          │             │
+│         │           │  └───────────┘                          │             │
+│         │           └──────────────────────────────────────────┘             │
 │         │                         │                                          │
 │         │                         ▼                                          │
-│         │                 ┌──────────────┐                                  │
-│         │                 │   zh_Hans/   │                                  │
-│         │                 │  (Target)    │                                  │
-│         │                 └──────────────┘                                  │
+│         │                 ┌──────────────┐                                   │
+│         │                 │   zh_Hans/   │                                   │
+│         │                 │  (Target)    │                                   │
+│         │                 └──────────────┘                                   │
 │         │                         │                                          │
 │         ▼                         ▼                                          │
-│  ┌─────────────────────────────────────────────┐                            │
-│  │              Babele Runtime                  │                            │
-│  │  ┌─────────────┐  ┌─────────────────────┐   │                            │
-│  │  │ Converters  │  │ Translation Lookup  │   │                            │
-│  │  │ (Reuse)     │  │                     │   │                            │
-│  │  └─────────────┘  └─────────────────────┘   │                            │
-│  └─────────────────────────────────────────────┘                            │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+│  ┌─────────────────────────────────────────────┐                             │
+│  │              Babele Runtime                  │                             │
+│  │  ┌─────────────┐  ┌─────────────────────┐   │                             │
+│  │  │ Converters  │  │ Translation Lookup  │   │                             │
+│  │  │ (Reuse)     │  │                     │   │                             │
+│  │  └─────────────┘  └─────────────────────┘   │                             │
+│  └─────────────────────────────────────────────┘                             │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 核心数据流
+
+```
+提取阶段 (Extract):
+  en-US/*.json ──→ 剥离HTML标签 ──→ 剥离所有链接 ──→ 纯文本 CSV
+                                                        │
+翻译阶段 (Translate):                                    │
+  翻译者在 Weblate 或 Excel 中编辑 CSV ◄────────────────┘
+                                          │
+注入阶段 (Inject):                        ▼
+  翻译后的 CSV ──→ 注入回 HTML 结构 ──→ 半成品 JSON (含英文链接)
+                                          │
+后处理阶段 (Post-Process):                ▼
+  半成品 JSON ──→ Link Post-Processor ──→ 最终 zh_Hans/*.json
+                  (用 Glossary 替换链接显示文本)
+                  (用 Glossary 替换 @Compendium ref 路径中的名称)
 ```
 
 ## Components and Interfaces
@@ -94,28 +118,88 @@ class ChangeReport:
 
 ### 2. Format Converter (格式转换器)
 
-处理 Babele JSON 与 Weblate 友好格式之间的转换。
+处理 Babele JSON 与翻译者友好格式之间的转换。采用 CSV 作为主要输出格式，提取时完全剥离链接和 HTML 标签，翻译者只需处理纯文本。
+
+**设计要点：**
+- 提取阶段完全剥离 `@UUID[...]{text}` 和 `@Compendium[...]{text}` 链接，只保留显示文本作为上下文
+- 剥离所有 HTML 标签，只输出纯文本
+- CSV 格式便于在 Excel/WPS 中直接编辑，也兼容 Weblate 导入
+- 注入阶段将纯文本翻译回填到源 HTML 结构中，链接暂保留英文原样
+- 链接的翻译由 Link Post-Processor 在后处理阶段统一完成
 
 ```python
 class FormatConverter:
-    """在 Babele JSON 和 Weblate 格式之间转换"""
+    """在 Babele JSON 和翻译者友好格式之间转换
     
-    def extract_for_weblate(self, babele_json: str, output_format: str = 'po') -> str:
-        """从 Babele JSON 提取纯文本，生成 Weblate 兼容格式"""
+    核心流程：
+    1. extract: Babele JSON → 剥离链接和HTML → 纯文本 CSV
+    2. inject:  翻译后的 CSV + 源 HTML 结构 → 半成品 JSON (链接待后处理)
+    """
+    
+    def extract_for_translation(self, babele_json: str, output_format: str = 'csv') -> str:
+        """从 Babele JSON 提取纯文本，生成翻译者友好格式
+        
+        处理步骤：
+        1. 遍历所有 entries 的可翻译字段
+        2. 对 HTML 内容：剥离所有链接（记录链接信息到元数据），剥离 HTML 标签
+        3. 输出纯文本 CSV（默认）或 JSON
+        
+        CSV 列：key, field, source_text, translated_text, context
+        - source_text: 纯文本，无链接无HTML
+        - context: 包含链接位置提示，帮助翻译者理解上下文
+        """
         pass
     
-    def inject_translations(self, source_json: str, translations: str) -> str:
-        """将翻译注入回 Babele JSON 格式"""
+    def inject_translations(self, source_json: str, translations_csv: str) -> str:
+        """将翻译注入回 Babele JSON 格式
+        
+        处理步骤：
+        1. 读取源 JSON 获取 HTML 结构
+        2. 读取翻译 CSV 获取翻译文本
+        3. 将翻译文本注入 HTML 结构（保留原始链接不变）
+        4. 输出半成品 JSON，链接仍为英文，待 Link Post-Processor 处理
+        """
+        pass
+    
+    def strip_links(self, html_content: str) -> Tuple[str, List[LinkInfo]]:
+        """从 HTML 内容中剥离所有链接，返回纯文本和链接元数据
+        
+        @UUID[Compendium.xxx.yyy]{Display Text} → "Display Text"
+        @Compendium[xxx.yyy]{Display Text} → "Display Text"
+        @Compendium[xxx.yyy] → ""（纯引用，无显示文本）
+        
+        Returns:
+            (剥离链接后的文本, 链接信息列表)
+        """
         pass
     
     def preserve_html_structure(self, source_html: str, translated_text: str) -> str:
-        """保持 HTML 结构，只替换文本内容"""
+        """保持 HTML 结构，只替换文本内容，保留原始链接"""
         pass
+
+@dataclass
+class LinkInfo:
+    """链接元数据，用于后处理阶段"""
+    type: str           # 'uuid' 或 'compendium'
+    ref: str            # 链接引用路径
+    display_text: str   # 原始显示文本（英文）
+    position: int       # 在文本中的大致位置
 ```
+
+**CSV 输出格式示例：**
+
+```csv
+key,field,source_text,translated_text,context
+"Ace",name,"Ace","","swade-edges"
+"Ace",description,"Aces are specially trained drivers... using Bennies to Soak damage for any vehicle...","","Contains links: Boating, Driving, Piloting, Vigor, Soak"
+"Ace",category,"Professional","","edge category"
+```
+
+翻译者看到的是干净的纯文本，无需关心 `@UUID[...]` 或 `@Compendium[...]` 语法。`context` 列提供链接相关术语作为参考。
 
 ### 3. Glossary Manager (术语管理器)
 
-管理术语表，确保翻译一致性。
+管理术语表，确保翻译一致性。同时为 Link Post-Processor 提供链接显示文本的翻译映射。
 
 ```python
 class GlossaryManager:
@@ -139,9 +223,134 @@ class GlossaryManager:
     def update_glossary(self, term: str, translation: str) -> None:
         """更新术语表"""
         pass
+    
+    def get_link_display_translation(self, english_display: str) -> Optional[str]:
+        """获取链接显示文本的中文翻译
+        
+        用于 Link Post-Processor 替换链接中的显示文本。
+        查找顺序：精确匹配 → 忽略大小写匹配 → 返回 None
+        
+        示例：
+            "Smarts" → "聪慧"
+            "Fighting" → "格斗"
+            "attributes" → "属性"（忽略大小写匹配）
+        """
+        pass
+    
+    def get_compendium_name_translation(self, english_name: str) -> Optional[str]:
+        """获取 Compendium 条目名称的中文翻译
+        
+        用于 Link Post-Processor 替换 @Compendium ref 路径中的名称。
+        
+        示例：
+            "Shooting" → "射击"（用于 @Compendium[swade-core-rules.swade-skills.射击]）
+            "Strong Willed" → "意志坚定"
+        """
+        pass
 ```
 
-### 4. Quality Checker (质量检查器)
+### 4. Link Post-Processor (链接后处理器)
+
+在翻译注入完成后，统一处理所有超链接的翻译。这是本设计的核心创新点：将链接翻译从翻译者的工作中完全解耦，由系统基于 Glossary 自动完成。
+
+**设计动机：**
+- 翻译者不需要理解 `@UUID[...]{}` 和 `@Compendium[...]{}` 语法
+- 链接显示文本几乎都是术语表中的标准术语（Edge 名、Skill 名、规则术语等）
+- `@Compendium` 短链接的 ref 路径中包含条目名称，翻译后需要同步更新
+- 统一后处理确保所有链接翻译的一致性
+
+**处理的链接类型：**
+
+| 链接类型 | 英文示例 | 中文结果 | 处理方式 |
+|---------|---------|---------|---------|
+| UUID + 显示文本 | `@UUID[...xxx]{Smarts}` | `@UUID[...xxx]{聪慧}` | 替换 `{}` 内的显示文本 |
+| Compendium + 显示文本 | `@Compendium[swade-core-rules.swade-skills.Shooting]{Shooting}` | `@Compendium[swade-core-rules.swade-skills.射击]{射击}` | 替换 ref 路径中的名称 + 显示文本 |
+| Compendium 纯引用 | `@Compendium[swade-core-rules.swade-skills.Shooting]` | `@Compendium[swade-core-rules.swade-skills.射击]` | 仅替换 ref 路径中的名称 |
+| UUID 纯引用 | `@UUID[...xxx]` | `@UUID[...xxx]`（不变） | UUID ref 路径不含可翻译名称，保持不变 |
+
+```python
+class LinkPostProcessor:
+    """链接后处理器：在翻译注入后统一替换链接中的文本"""
+    
+    def __init__(self, glossary_manager: GlossaryManager):
+        self.glossary = glossary_manager
+    
+    def process_file(self, translated_json_path: str) -> ProcessResult:
+        """处理整个翻译文件中的所有链接
+        
+        Args:
+            translated_json_path: 半成品翻译 JSON 文件路径
+            
+        Returns:
+            处理结果，包含替换统计和未匹配的术语列表
+        """
+        pass
+    
+    def process_content(self, html_content: str) -> Tuple[str, List[LinkReplacement]]:
+        """处理单个 HTML 内容中的所有链接
+        
+        处理步骤：
+        1. 扫描所有 @UUID[ref]{text} 链接，用 Glossary 替换 {text}
+        2. 扫描所有 @Compendium[module.pack.Name]{text} 链接：
+           a. 用 Glossary 替换 ref 路径最后一段的 Name
+           b. 用 Glossary 替换 {text}
+        3. 扫描所有 @Compendium[module.pack.Name] 纯引用：
+           a. 用 Glossary 替换 ref 路径最后一段的 Name
+        4. 记录所有未匹配的术语
+        
+        Returns:
+            (处理后的内容, 替换记录列表)
+        """
+        pass
+    
+    def replace_uuid_display_text(self, content: str) -> str:
+        """替换 @UUID[...]{text} 中的显示文本
+        
+        @UUID[Compendium.swade-core-rules.swade-rules.xxx]{Smarts}
+        → @UUID[Compendium.swade-core-rules.swade-rules.xxx]{聪慧}
+        """
+        pass
+    
+    def replace_compendium_links(self, content: str) -> str:
+        """替换 @Compendium 链接中的名称和显示文本
+        
+        @Compendium[swade-core-rules.swade-skills.Shooting]{Shooting}
+        → @Compendium[swade-core-rules.swade-skills.射击]{射击}
+        
+        @Compendium[swade-core-rules.swade-skills.Shooting]
+        → @Compendium[swade-core-rules.swade-skills.射击]
+        """
+        pass
+    
+    def get_unmatched_terms(self) -> List[str]:
+        """获取在 Glossary 中未找到翻译的链接显示文本列表
+        
+        用于提示翻译协调者补充术语表
+        """
+        pass
+
+@dataclass
+class LinkReplacement:
+    """链接替换记录"""
+    link_type: str          # 'uuid_display', 'compendium_ref', 'compendium_display'
+    original: str           # 原始链接文本
+    replaced: str           # 替换后的链接文本
+    english_term: str       # 被替换的英文术语
+    chinese_term: str       # 替换为的中文术语
+    matched: bool           # 是否在 Glossary 中找到匹配
+
+@dataclass
+class ProcessResult:
+    """文件处理结果"""
+    file_path: str
+    total_links: int        # 总链接数
+    replaced_links: int     # 成功替换的链接数
+    unmatched_links: int    # 未匹配的链接数
+    replacements: List[LinkReplacement]
+    unmatched_terms: List[str]
+```
+
+### 5. Quality Checker (质量检查器)
 
 验证翻译质量，检测常见问题。
 
@@ -177,7 +386,7 @@ class Issue:
     location: str  # entry key + field
 ```
 
-### 5. Progress Tracker (进度追踪器)
+### 6. Progress Tracker (进度追踪器)
 
 追踪翻译进度，生成统计报告。
 
@@ -211,7 +420,7 @@ class ProgressReport:
     by_compendium: Dict[str, CompendiumProgress]
 ```
 
-### 6. Babele Converter Optimizer (Converter 优化器)
+### 7. Babele Converter Optimizer (Converter 优化器)
 
 优化 Babele converter 配置，减少重复翻译。
 
@@ -322,24 +531,39 @@ const SWADE_CONVERTERS = {
 
 ### Property 2: Format Conversion Round-Trip
 
-*For any* valid Babele JSON file with HTML content, extracting text for Weblate and then injecting translations back SHALL preserve:
+*For any* valid Babele JSON file with HTML content, extracting text for translation (stripping links and HTML) and then injecting translations back SHALL preserve:
 - All HTML tags and their attributes
-- All UUID links (`@UUID[...]{}`)
-- All Compendium links (`@Compendium[...]{}`)
 - All CSS class names
 - All HTML entities
+- All original links in their exact positions (links remain in English at this stage, pending post-processing)
+
+The round-trip is defined as: extract → translate pure text → inject back into HTML structure. Link translation is handled separately by the Link Post-Processor.
 
 **Validates: Requirements 2.2, 2.3, 2.4**
 
-### Property 3: UUID Link Preservation
+### Property 3: Link Post-Processing Completeness
 
-*For any* HTML content containing UUID or Compendium links, after translation injection, the number and content of all links SHALL remain identical to the source.
+*For any* HTML content containing UUID or Compendium links, after Link Post-Processor execution:
+- The number of links SHALL remain identical to the source
+- All link ref paths (`@UUID[ref]`, `@Compendium[ref]`) SHALL remain structurally valid
+- For every link whose display text exists in the Glossary, the display text SHALL be replaced with the Chinese translation
+- For every `@Compendium[module.pack.Name]` link whose Name exists in the Glossary, the Name in the ref path SHALL be replaced with the Chinese translation
+- Links with display text not found in the Glossary SHALL be reported as unmatched but left unchanged
+
+**Validates: Requirements 2.4, 3.1, 7.3**
+
+### Property 3b: Link Count Preservation
+
+*For any* HTML content, the total number of `@UUID` and `@Compendium` links before and after the full pipeline (extraction → injection → post-processing) SHALL be identical.
 
 **Validates: Requirements 2.4, 7.3**
 
 ### Property 4: Glossary Application Consistency
 
-*For any* text containing terms from the glossary, applying the glossary SHALL replace all occurrences of each term with its translation, and the result SHALL be consistent (same term always maps to same translation).
+*For any* text containing terms from the glossary, applying the glossary SHALL replace all occurrences of each term with its translation, and the result SHALL be consistent (same term always maps to same translation). This applies to both:
+- Plain text glossary application (body text)
+- Link display text replacement (via Link Post-Processor)
+- Compendium ref path name replacement (via Link Post-Processor)
 
 **Validates: Requirements 3.1, 3.4, 7.5**
 
@@ -459,17 +683,28 @@ class GlossaryError(Exception):
    - 测试空文件处理
 
 2. **Format Converter Tests**
-   - 测试 HTML 文本提取
-   - 测试翻译注入
-   - 测试 UUID 链接保留
+   - 测试链接剥离（@UUID 和 @Compendium 链接完全移除，保留显示文本）
+   - 测试 HTML 标签剥离，输出纯文本
+   - 测试 CSV 格式输出（列结构、编码、转义）
+   - 测试翻译注入回 HTML 结构（保留原始链接位置）
    - 测试特殊字符处理
 
 3. **Glossary Manager Tests**
    - 测试术语应用
    - 测试未知术语检测
    - 测试术语更新
+   - 测试链接显示文本翻译查找（精确匹配、忽略大小写）
+   - 测试 Compendium 名称翻译查找
 
-4. **Quality Checker Tests**
+4. **Link Post-Processor Tests**
+   - 测试 @UUID 显示文本替换
+   - 测试 @Compendium ref 路径名称替换
+   - 测试 @Compendium 显示文本替换
+   - 测试未匹配术语的报告
+   - 测试链接数量在处理前后保持一致
+   - 测试 UUID 纯引用（无显示文本）保持不变
+
+5. **Quality Checker Tests**
    - 测试占位符检测
    - 测试 HTML 标签验证
    - 测试 UUID 链接验证
@@ -491,7 +726,23 @@ def test_change_detection_accuracy(entries):
 @given(st.text())
 def test_format_conversion_round_trip(html_content):
     """Property 2: 格式转换往返"""
-    # 提取文本，注入翻译，验证结构保持
+    # 提取纯文本（剥离链接和HTML），注入翻译，验证HTML结构保持
+    # 验证链接在注入后仍保留在原始位置
+    pass
+
+@given(st.text(), st.dictionaries(st.text(), st.text()))
+def test_link_post_processing_completeness(html_with_links, glossary):
+    """Property 3: 链接后处理完整性"""
+    # 生成包含链接的HTML内容和术语表
+    # 验证后处理后链接数量不变
+    # 验证术语表中存在的术语被正确替换
+    # 验证未匹配术语被报告
+    pass
+
+@given(st.text(), st.dictionaries(st.text(), st.text()))
+def test_link_count_preservation(html_with_links, glossary):
+    """Property 3b: 链接数量保持"""
+    # 验证完整流水线前后链接数量一致
     pass
 ```
 
@@ -501,11 +752,16 @@ def test_format_conversion_round_trip(html_content):
 
 1. **端到端工作流测试**
    - 从源文件更新到翻译文件生成的完整流程
+   - 提取 → CSV 翻译 → 注入 → 链接后处理 → 最终 JSON 的完整流水线
 
-2. **CI/CD 流程测试**
+2. **Link Post-Processor 集成测试**
+   - 使用真实的 glossary 文件和翻译文件验证链接替换
+   - 验证 @Compendium ref 路径中的名称替换与 Babele 运行时兼容
+
+3. **CI/CD 流程测试**
    - 验证 GitHub Actions 工作流
 
-3. **Babele 集成测试**
+4. **Babele 集成测试**
    - 在 FoundryVTT 环境中验证翻译效果
 
 ### Test Configuration
