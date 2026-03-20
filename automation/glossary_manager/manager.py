@@ -101,6 +101,38 @@ class GlossaryManager:
 
         return None
 
+    def get_compendium_name_translation(self, english_name: str) -> Optional[str]:
+        """获取 Compendium 条目名称的中文翻译
+
+        用于 Link Post-Processor 替换 @Compendium ref 路径中的条目名称。
+        查找顺序：精确匹配 → 忽略大小写匹配 → 返回 None
+
+        Args:
+            english_name: 英文条目名称（如 "Shooting", "Strong Willed"）
+
+        Returns:
+            Optional[str]: 中文翻译，如果不存在则返回 None
+
+        Examples:
+            "Shooting" → "射击"
+            "Strong Willed" → "意志坚定"
+        """
+        if not english_name:
+            return None
+
+        # 1. 精确匹配
+        if english_name in self.glossary:
+            return self.glossary[english_name]
+
+        # 2. 忽略大小写匹配
+        name_lower = english_name.lower()
+        for term, translation in self.glossary.items():
+            if term.lower() == name_lower:
+                return translation
+
+        return None
+
+
     
     def apply_glossary(self, text: str) -> str:
         """应用术语表到文本

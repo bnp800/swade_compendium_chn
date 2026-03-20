@@ -169,6 +169,55 @@ class TestLinkDisplayTranslation:
         assert result is not None
 
 
+class TestCompendiumNameTranslation:
+    """Compendium 条目名称翻译查找测试 (Task 6.6)"""
+
+    def test_exact_match(self, glossary_manager):
+        """精确匹配：术语大小写完全一致"""
+        assert glossary_manager.get_compendium_name_translation("Vigor") == "活力"
+        assert glossary_manager.get_compendium_name_translation("Smarts") == "聪慧"
+
+    def test_case_insensitive_match(self, glossary_manager):
+        """忽略大小写匹配"""
+        assert glossary_manager.get_compendium_name_translation("vigor") == "活力"
+        assert glossary_manager.get_compendium_name_translation("STRENGTH") == "力量"
+
+    def test_exact_match_takes_priority(self, tmp_path):
+        """精确匹配优先于忽略大小写匹配"""
+        glossary_data = {"Shooting": "射击", "shooting": "射击小写"}
+        filepath = tmp_path / "glossary.json"
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(glossary_data, f, ensure_ascii=False)
+        gm = GlossaryManager(str(filepath))
+        assert gm.get_compendium_name_translation("Shooting") == "射击"
+        assert gm.get_compendium_name_translation("shooting") == "射击小写"
+
+    def test_not_found_returns_none(self, glossary_manager):
+        """术语不存在时返回 None"""
+        assert glossary_manager.get_compendium_name_translation("NonExistentEntry") is None
+
+    def test_empty_input_returns_none(self, glossary_manager):
+        """空输入返回 None"""
+        assert glossary_manager.get_compendium_name_translation("") is None
+        assert glossary_manager.get_compendium_name_translation(None) is None
+
+    def test_multi_word_name(self, glossary_manager):
+        """多词条目名称匹配"""
+        assert glossary_manager.get_compendium_name_translation("Wild Card") == "不羁角色"
+        assert glossary_manager.get_compendium_name_translation("Arcane Background") == "奥法背景"
+        assert glossary_manager.get_compendium_name_translation("wild card") == "不羁角色"
+
+    def test_with_real_glossary(self, real_glossary_manager):
+        """使用真实术语表测试常见 SWADE Compendium 条目名称"""
+        if real_glossary_manager is None:
+            pytest.skip("Real glossary file not found")
+        gm = real_glossary_manager
+        # Common skill/edge names used in @Compendium refs
+        assert gm.get_compendium_name_translation("Agility") is not None
+        assert gm.get_compendium_name_translation("Ace") is not None
+        assert gm.get_compendium_name_translation("Alertness") is not None
+
+
 class TestGlossaryManagerUpdate:
     """术语表更新测试"""
     
