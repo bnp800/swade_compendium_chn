@@ -94,7 +94,7 @@
         "6-6": "次级超魔权杖",
         "7-7": "否定权杖",
         "8-8": "防护、塑能或死灵法杖"
-        }
+      }
     },
     "Available Scrolls": {
       "name": "可用卷轴",
@@ -218,18 +218,18 @@
       "results": {
         "2-2": "<div class=\"swpf-core\"><p><strong>私处：</strong>如果创伤是永久性的，不用奇迹般的手术或者魔法就会彻底失去生育能力。该结果不会有其他效果。</p></div>",
         "3-4": "<div class=\"swpf-core\"><p><strong>手臂：</strong>对象再也无法使用其左手或是右手（若没有选定目标则随机投骰）。</p></div>",
-        "5-9": "@Compendium[swpf-core-rules.swpf-tables.内脏创伤]{内脏创伤}",
+        "5-9": "@Compendium[swpf-core-rules.swpf-tables.GutsInjury]{内脏创伤}",
         "10-11": "<div class=\"swpf-core\"><p><strong>腿部：</strong>获得缓慢负赘（次要），如果已经有缓慢负赘或是双腿受伤则是主要负赘。</p></div>",
-        "12-12": "@Compendium[swpf-core-rules.swpf-tables.头部创伤]{头部创伤}"
+        "12-12": "@Compendium[swpf-core-rules.swpf-tables.HeadInjury]{头部创伤}"
       }
     },
     "Other Item Categories": {
       "name": "其他物品种类",
       "results": {
-        "1-11": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.可用护甲与武器]{护甲与武器}</p></div>",
-        "12-13": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.可用戒指]{戒指}</p></div>",
-        "14-16": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.可用权杖与法杖]{权杖与法杖}</p></div>",
-        "17-18": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.可用魔杖]{魔杖}</p></div>",
+        "1-11": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.Available Armor & Weapons]{护甲与武器}</p></div>",
+        "12-13": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.Available Rings]{戒指}</p></div>",
+        "14-16": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.Available Rods & Staves]{权杖与法杖}</p></div>",
+        "17-18": "<div class=\"swpf-core\"><p>@Compendium[swpf-core-rules.swpf-tables.Available Wands]{魔杖}</p></div>",
         "19-20": "<div class=\"swpf-core\"><p>奇物</p></div>"
       }
     },
